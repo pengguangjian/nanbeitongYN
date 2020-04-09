@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>TicketAPP.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>22839B3B441F2653FD2030D5E619BD5EEF1ED66E</string>
+				<key>dateExpires</key>
+				<string>2021/4/9</string>
+				<key>type</key>
+				<string>Apple Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>58S35QXA2N.heiheiDa.com.29Vietnam</string>
+				<key>aps-environment</key>
+				<string>production</string>
+				<key>com.apple.developer.applesignin</key>
+				<array>
+					<string>Default</string>
+				</array>
+				<key>com.apple.developer.team-identifier</key>
+				<string>58S35QXA2N</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>NAM BAC THONG.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>72abea7d-a189-4148-8847-8fad4f1459f8</string>
+				<key>name</key>
+				<string>iOS Team Ad Hoc Provisioning Profile: heiheiDa.com.29Vietnam</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>58S35QXA2N</string>
+				<key>name</key>
+				<string>SOUTH NORTH VIET NAM AUTOMOBILE TRANSPORT JOINT STOCK COMPANY</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
