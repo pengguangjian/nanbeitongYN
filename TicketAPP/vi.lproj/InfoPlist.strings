@@ -12,6 +12,6 @@
 "NSPhotoLibraryUsageDescription"="Cần truy cập album ảnh của bạn để bạn có thể sử dụng dịch vụ avatar tải lên bình thường";*/
 "CFBundleDisplayName" = "票务通";
 "FacebookDisplayName" = "票务通";
-"NSCameraUsageDescription"="需要访问你的相机，以便您正常使用上传头像服务";
-"NSPhotoLibraryAddUsageDescription"="需要访问你的相册，以便您正常使用保存图片服务";
-"NSPhotoLibraryUsageDescription"="需要访问你的相册，以便您正常使用上传头像服务";
+"NSCameraUsageDescription"="Cần truy cập máy ảnh của bạn để bạn có thể sử dụng dịch vụ avatar tải lên bình thường";
+"NSPhotoLibraryAddUsageDescription"="Cần truy cập album ảnh của bạn để bạn có thể sử dụng dịch vụ lưu ảnh bình thường";
+"NSPhotoLibraryUsageDescription"="Cần truy cập album ảnh của bạn để bạn có thể sử dụng dịch vụ avatar tải lên bình thường";

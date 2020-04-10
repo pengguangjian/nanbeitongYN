@@ -12,6 +12,9 @@
 
 "退 款" = "Refund";
 "退款中" = "Refunding";
+"请选择方式" = "Please select a method";
+"拍照" = "Photograph";
+"从相册中选取" = "Select from album";
 
 /**登录界面**/
 "绑定手机" = "Binding phone";

@@ -60,6 +60,14 @@
 //    self.sdView.placeholderImage = [UIImage imageNamed:@"ammie-ngo-690967-unsplash"];
 //    self.sdView.localizationImageNamesGroup =@[[UIImage imageNamed:@"ammie-ngo-690967-unsplash"]];
     [self requestIndexbanner];
+    
+    
+    self.startButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.startButton.titleLabel.numberOfLines = 2;
+    
+    self.endButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.endButton.titleLabel.numberOfLines = 2;
+    
 }
 
 - (void)layoutSubviews{

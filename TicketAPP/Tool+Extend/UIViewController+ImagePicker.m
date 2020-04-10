@@ -61,16 +61,16 @@ static char keyIsRound;
         
     }
     
-    UIAlertController *alertController = [UIAlertController showActionSheetwithTitle:@"请选择方式" Message:nil];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    UIAlertController *alertController = [UIAlertController showActionSheetwithTitle:NSBundleLocalizedString(@"请选择方式") Message:nil];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSBundleLocalizedString(@"取消") style:UIAlertActionStyleCancel handler:nil]];
     
-    [alertController addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:NSBundleLocalizedString(@"拍照") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         
         [self openSystemCamera];
         
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"从相册中选取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:NSBundleLocalizedString(@"从相册中选取") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         [self openSystemAblum];
         

@@ -53,6 +53,7 @@
 
 -(void)drawUI
 {
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     TicketOrderDateilsView *tview = [[TicketOrderDateilsView alloc] init];
     [self.view addSubview:tview];
     [tview setDelegate:self];
