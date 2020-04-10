@@ -32,7 +32,7 @@
     UIButton *yuyan = [[UIButton alloc]init];
 //    yuyan.hidden = YES;
     yuyan.titleLabel.font = [UIFont systemFontOfSize:15];
-    [yuyan setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [yuyan setTitleColor:RGB(80, 80, 80) forState:UIControlStateNormal];
     [yuyan addTarget: self action: @selector(muneButtonTaped:) forControlEvents: UIControlEventTouchUpInside];
     [yuyan setImage:[UIImage imageNamed:@"sanx_up"] forState:UIControlStateNormal];
     self.yuyan = yuyan;
@@ -40,7 +40,7 @@
     [self.yuyan mas_makeConstraints:^(MASConstraintMaker *maker){
         maker.top.mas_equalTo(SYS_StatusBarHeight);
         maker.left.equalTo(self.contentView).offset(15);
-        maker.width.mas_equalTo(60);
+        maker.width.mas_equalTo(70);
         maker.height.mas_equalTo(SYS_NavBarHeight);
     }];
     

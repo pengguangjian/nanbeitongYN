@@ -60,11 +60,12 @@
     [super viewWillAppear:animated];
     self.calendar.delegate = self;
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.calendar.delegate = nil;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -456,6 +457,10 @@
     
     if (!_tableView) {
         _tableView= [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREENH_HEIGHT- SYS_BottomHeight)];
+        if([NSBundle getLanguagekey] != LanguageZH)
+        {
+            _tableView.height-=10;
+        }
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = RGB(248, 248, 248);;
         _tableView.delegate = self;

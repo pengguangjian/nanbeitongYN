@@ -29,8 +29,8 @@
 "首页" = "Trang chủ";
 "物流" = "Vận chuyển";
 "订单" = "Đơn hàng";
-"商旅" = "Thương mại Lữ hành";
-"我的" = "Trang cá nhân";
+"商旅" = "Thương mại\n Lữ hành";
+"我的" = "Trang \ncá nhân";
 
 //首页
 "预定须知"="Thông báo đặt phòng";
@@ -213,3 +213,7 @@
 "联系人信息" = "Thông tin liên hệ";
 "联系人" = "Danh bạ";
 "手机号" = "Số điện thoại";
+
+"退 款" = "Hoàn tiền";
+"退款中" = "Đang hoàn tiền";  
+

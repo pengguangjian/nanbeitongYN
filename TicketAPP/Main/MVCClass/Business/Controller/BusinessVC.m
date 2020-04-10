@@ -124,7 +124,12 @@
         flowLayout.minimumLineSpacing = 0;
         flowLayout.minimumInteritemSpacing = 0;
         flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, SYS_TopHeight, SCREEN_WIDTH, SCREENH_HEIGHT - SYS_ALLDUD) collectionViewLayout:flowLayout];
+        float ftemphh = 0;
+        if([NSBundle getLanguagekey] != LanguageZH)
+        {
+            ftemphh=10;
+        }
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, SYS_TopHeight, SCREEN_WIDTH, SCREENH_HEIGHT - SYS_ALLDUD-ftemphh) collectionViewLayout:flowLayout];
         _collectionView.backgroundColor = UIColorFromHex(0xf6f6f6);
         _collectionView.delegate = self;
         _collectionView.dataSource = self;

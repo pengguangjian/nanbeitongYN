@@ -40,7 +40,7 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 
@@ -49,11 +49,11 @@
     
     self.isPwa = NO;
     
-    [self.but1 setTitleColor:UIColorFromRGB(130, 130, 130) forState:UIControlStateNormal];
+    [self.but1 setTitleColor:UIColorFromRGB(180, 180, 180) forState:UIControlStateNormal];
     [self.but1 setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [self.but2 setTitleColor:UIColorFromRGB(130, 130, 130) forState:UIControlStateNormal];
+    [self.but2 setTitleColor:UIColorFromRGB(180, 180, 180) forState:UIControlStateNormal];
     [self.but2 setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [self.but3 setTitleColor:UIColorFromRGB(130, 130, 130) forState:UIControlStateNormal];
+    [self.but3 setTitleColor:UIColorFromRGB(180, 180, 180) forState:UIControlStateNormal];
     [self.but3 setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     
     [self upLanguageBut];

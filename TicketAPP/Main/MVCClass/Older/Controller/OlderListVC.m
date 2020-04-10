@@ -168,7 +168,12 @@
     latest.tickeType = @"4";
     NSArray *childs = @[meigeiqian,cooperation,progress,latest];
     
-    self.pageScrollView = [[SGPageContentScrollView alloc]initWithFrame:CGRectMake(0, SYS_TopHeight + 50, SCREEN_WIDTH, SCREENH_HEIGHT - SYS_ALLDUD -50) parentVC:self childVCs:childs];
+    float ftemphh = 0;
+    if([NSBundle getLanguagekey] != LanguageZH)
+    {
+        ftemphh=10;
+    }
+    self.pageScrollView = [[SGPageContentScrollView alloc]initWithFrame:CGRectMake(0, SYS_TopHeight + 50, SCREEN_WIDTH, SCREENH_HEIGHT - SYS_ALLDUD -50-ftemphh ) parentVC:self childVCs:childs];
     self.pageScrollView.delegatePageContentScrollView = self;
     [self.view addSubview:self.pageScrollView];
 }

@@ -38,7 +38,7 @@
         _model = model;
         
         if (_model.ol_status == 2) {
-            [self.orderButton setTitle:NSBundleLocalizedString(@"退款") forState:UIControlStateNormal];
+            [self.orderButton setTitle:NSBundleLocalizedString(@"退 款") forState:UIControlStateNormal];
             [self.orderButton setBackgroundColor:DEFAULTCOLOR1];
             [self.orderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             

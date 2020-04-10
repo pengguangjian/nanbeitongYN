@@ -10,6 +10,8 @@
 		043C9C5D243EC25100BC1B84 /* TicketOrderDateilsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C9C5C243EC25000BC1B84 /* TicketOrderDateilsVC.m */; };
 		043C9C60243EC42B00BC1B84 /* TicketOrderDateilsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C9C5F243EC42B00BC1B84 /* TicketOrderDateilsView.m */; };
 		043C9C63243F0B0100BC1B84 /* TickerOrderDateilsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C9C62243F0B0100BC1B84 /* TickerOrderDateilsModel.m */; };
+		0447D7B5244014D2009B4690 /* MyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447D7B3244014D2009B4690 /* MyTabBar.m */; };
+		0447D7B6244014D2009B4690 /* MyTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447D7B4244014D2009B4690 /* MyTabBarButton.m */; };
 		04512EC22435EE870077B682 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04512EC02435EE850077B682 /* AlipaySDK.bundle */; };
 		04512EC32435EE870077B682 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04512EC12435EE870077B682 /* AlipaySDK.framework */; };
 		0F1A8A217135AE28E8442492 /* libPods-TicketAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2089408423B9FBFF00EB90AD /* libPods-TicketAPP.a */; };
@@ -352,6 +354,10 @@
 		043C9C5F243EC42B00BC1B84 /* TicketOrderDateilsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketOrderDateilsView.m; sourceTree = "<group>"; };
 		043C9C61243F0B0000BC1B84 /* TickerOrderDateilsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TickerOrderDateilsModel.h; sourceTree = "<group>"; };
 		043C9C62243F0B0100BC1B84 /* TickerOrderDateilsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TickerOrderDateilsModel.m; sourceTree = "<group>"; };
+		0447D7B1244014D1009B4690 /* MyTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBar.h; sourceTree = "<group>"; };
+		0447D7B2244014D1009B4690 /* MyTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarButton.h; sourceTree = "<group>"; };
+		0447D7B3244014D2009B4690 /* MyTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBar.m; sourceTree = "<group>"; };
+		0447D7B4244014D2009B4690 /* MyTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarButton.m; sourceTree = "<group>"; };
 		04512EC02435EE850077B682 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		04512EC12435EE870077B682 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		16B514865380C0ADFAB5C92E /* libPods-TicketAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TicketAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2358,6 +2364,10 @@
 				FA3DC59B22C44F7300B794AC /* BaseModel.m */,
 				FABB13EE22C2211000D87668 /* BaseTabBarVC.h */,
 				FABB13EF22C2211000D87668 /* BaseTabBarVC.m */,
+				0447D7B1244014D1009B4690 /* MyTabBar.h */,
+				0447D7B3244014D2009B4690 /* MyTabBar.m */,
+				0447D7B2244014D1009B4690 /* MyTabBarButton.h */,
+				0447D7B4244014D2009B4690 /* MyTabBarButton.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -2723,6 +2733,7 @@
 				B99E668822D39B4500B9C114 /* NSObject+AvoidCrash.m in Sources */,
 				B96C925A22F91A62007C34AC /* TicketConfirmModel.m in Sources */,
 				B98BF38F22DCBC21008AB714 /* LogisticsOrderVC.m in Sources */,
+				0447D7B5244014D2009B4690 /* MyTabBar.m in Sources */,
 				FA3DC5BE22C4970F00B794AC /* MineVC.m in Sources */,
 				2080EEEE23B9E780003783B5 /* JKPhotoBrowser.m in Sources */,
 				204F512A23710D6B007D4B95 /* BusImageVC.m in Sources */,
@@ -2825,6 +2836,7 @@
 				B9F9F9AD22EDE25800EEDA2B /* UIView+FTCornerdious.m in Sources */,
 				20409F0D2366901F00D726E5 /* ContactListVC.m in Sources */,
 				20407D662355B1E3001F0898 /* SVProgressAnimatedView.m in Sources */,
+				0447D7B6244014D2009B4690 /* MyTabBarButton.m in Sources */,
 				B96C926022F96C2A007C34AC /* OlderDateilsModel.m in Sources */,
 				20B7F5C0237254D5005E65E4 /* CommentObj.m in Sources */,
 				20B7F5CE2372B7AF005E65E4 /* RoleObj.m in Sources */,
