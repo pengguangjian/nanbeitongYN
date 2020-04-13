@@ -27,6 +27,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.navigationController.viewControllers.count>1) {
+        self.tabBarController.tabBar.hidden = YES;
+    }
+    
     // Do any additional setup after loading the view.
     //  参考 右滑全屏返回( http://www.jianshu.com/p/2e8d332c60ff ）
     // Do any additional setup after loading the view.

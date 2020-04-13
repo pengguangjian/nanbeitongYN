@@ -31,7 +31,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background_os7"]];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@""]];///tabbar_background_os7
         
     }
     return self;

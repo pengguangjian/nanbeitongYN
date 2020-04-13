@@ -20,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.navigationController.viewControllers.count>1) {
+        self.tabBarController.tabBar.hidden = YES;
+    }
      self.automaticallyAdjustsScrollViewInsets = NO;
 
 }

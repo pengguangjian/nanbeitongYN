@@ -49,6 +49,11 @@
     CGFloat titleY = self.frame.size.height * TabBarButtonRatio;
     CGFloat titleW = self.frame.size.width;
     CGFloat titleH = self.frame.size.height - titleY;
+    if([NSBundle getLanguagekey] == LanguageZH)
+    {
+        titleH = 15;
+    }
+    
     
     return CGRectMake(titleX, titleY, titleW, titleH);
 }

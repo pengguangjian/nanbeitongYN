@@ -16,6 +16,10 @@
 -(void)loadView
 {
     [super loadView];
+    if (self.navigationController.viewControllers.count>1) {
+        self.tabBarController.tabBar.hidden = YES;
+    }
+    
     
     self.tableView = [[TPKeyboardAvoidingTableView alloc] initWithFrame:CGRectMake(0, SafeAreaTopHeight, DEVICE_Width, DEVICE_Height-SafeAreaTopHeight) style:UITableViewStyleGrouped];
     
