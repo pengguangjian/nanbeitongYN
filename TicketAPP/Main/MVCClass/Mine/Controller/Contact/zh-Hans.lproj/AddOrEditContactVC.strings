@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "证件号码"; ObjectID = "0zU-aJ-OTw"; */
+"0zU-aJ-OTw.text" = "证件号码";
+
+/* Class = "UILabel"; text = "证件类型"; ObjectID = "8iW-gg-ieN"; */
+"8iW-gg-ieN.text" = "证件类型";
+
+/* Class = "UILabel"; text = "姓名"; ObjectID = "FBD-7G-ecV"; */
+"FBD-7G-ecV.text" = "姓名";
+
+/* Class = "UITextField"; placeholder = "请输入姓名（英文名或拼音）"; ObjectID = "I6y-Va-b9B"; */
+"I6y-Va-b9B.placeholder" = "请输入姓名（英文名或拼音）";
+
+/* Class = "UILabel"; text = "手机号"; ObjectID = "RG1-KI-J2g"; */
+"RG1-KI-J2g.text" = "手机号";
+
+/* Class = "UITextField"; placeholder = "请选择证件类型"; ObjectID = "SNW-sj-Dfw"; */
+"SNW-sj-Dfw.placeholder" = "请选择证件类型";
+
+/* Class = "UITextField"; placeholder = "请输入证件号码"; ObjectID = "VdB-QZ-RZM"; */
+"VdB-QZ-RZM.placeholder" = "请输入证件号码";
+
+/* Class = "UITextField"; placeholder = "请输入邮箱"; ObjectID = "Ydk-Js-ByW"; */
+"Ydk-Js-ByW.placeholder" = "请输入邮箱";
+
+/* Class = "UILabel"; text = "邮箱"; ObjectID = "cL0-iU-FiU"; */
+"cL0-iU-FiU.text" = "邮箱";
+
+/* Class = "UITextField"; placeholder = "请输入手机号"; ObjectID = "ds6-Tl-1jF"; */
+"ds6-Tl-1jF.placeholder" = "请输入手机号";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "mtA-Ge-IoL"; */
+"mtA-Ge-IoL.normalTitle" = "保存";

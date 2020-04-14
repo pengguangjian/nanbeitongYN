@@ -13,6 +13,8 @@
 @interface GetOnOffListVC ()
 {
     NSArray *dataArr;
+    
+    GetOnOffObj *modelSelect;
 }
 @end
 
@@ -59,7 +61,7 @@
             
             NSArray *arr = nil;
             
-            if ([_titleStr isEqualToString:@"请选择上车点"]) {
+            if ([_titleStr isEqualToString:LS(@"请选择上车点")]) {
                 arr = [rd.data valueForKey:@"pickup_points"];
             } else {
                 arr = [rd.data valueForKey:@"drop_off_points_at_arrive"];
@@ -123,6 +125,20 @@
     cell.timeLabel.text = [componds firstObject];
     cell.nameLabel.text = gooo.name;
     cell.addrLabel.text = gooo.address;
+    if([NSBundle getLanguagekey] == LanguageEN)
+    {
+        if(gooo.english_name.length>0)
+        {
+            cell.nameLabel.text = gooo.english_name;
+        }
+        if(gooo.address_name.length>0)
+        {
+            cell.addrLabel.text = gooo.address_name;
+        }
+    }
+    cell.beizhuLabel.text = [NSString stringWithFormat:@"%@", gooo.additional_fee_type_txt];
+    
+    
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
@@ -138,6 +154,36 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     GetOnOffObj *gooo = [dataArr objectAtIndex:indexPath.row];
+    
+    if(gooo.address.length==0 && gooo.address_name.length==0)
+    {
+        modelSelect = gooo;
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:LS(@"请输入地址") preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:LS(@"取消") style:UIAlertActionStyleCancel handler:nil]];
+        [alertController addAction:[UIAlertAction actionWithTitle:LS(@"确定") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UITextField*userNameTextField = alertController.textFields.firstObject;
+            if([userNameTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""].length < 1)
+            {
+                [SVProgressHUD showErrorWithStatus:LS(@"请输入地址")];
+                return;
+            }
+            modelSelect.muUserAddress = userNameTextField.text;
+            if (self.getONHandler) {
+                self.getONHandler(modelSelect);
+            }
+            if (self.getOffHander) {
+                self.getOffHander(modelSelect);
+            }
+            [self leftBtnOnTouch:nil];
+            
+        }]];
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField*_Nonnull textField) {
+            textField.placeholder=LS(@"请输入地址");
+        }];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        return;
+    }
     
     if (self.getONHandler) {
         self.getONHandler(gooo);

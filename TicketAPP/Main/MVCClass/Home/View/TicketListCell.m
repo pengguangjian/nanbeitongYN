@@ -20,7 +20,7 @@
     self.priceLabel.textColor = DEFAULTCOLOR1;
     self.oldPriceLabel.textColor = COL3;
     
-    self.starLevelLabel.text = @"评价星级";
+    self.starLevelLabel.text = LS(@"评价星级");
     
     _starRate = [[TYStarRateView alloc] initWithFrame:CGRectMake(0, 0, 90, 15) numberOfStars:5];
     _starRate.scorePercent = 4.0/5.0;

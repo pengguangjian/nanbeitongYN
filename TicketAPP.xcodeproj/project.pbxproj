@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04261BF524458E7100DCC51C /* AddOrEditContactVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04261BF724458E7100DCC51C /* AddOrEditContactVC.xib */; };
+		04261BFE24458FC900DCC51C /* HomeCityHotcityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04261C0024458FC900DCC51C /* HomeCityHotcityCell.xib */; };
+		04261C0D2445994700DCC51C /* CellPendIngOrderNoPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 04261C0B2445994700DCC51C /* CellPendIngOrderNoPay.m */; };
+		04261C0E2445994700DCC51C /* CellPendIngOrderNoPay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04261C0C2445994700DCC51C /* CellPendIngOrderNoPay.xib */; };
 		043C9C5D243EC25100BC1B84 /* TicketOrderDateilsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C9C5C243EC25000BC1B84 /* TicketOrderDateilsVC.m */; };
 		043C9C60243EC42B00BC1B84 /* TicketOrderDateilsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C9C5F243EC42B00BC1B84 /* TicketOrderDateilsView.m */; };
 		043C9C63243F0B0100BC1B84 /* TickerOrderDateilsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C9C62243F0B0100BC1B84 /* TickerOrderDateilsModel.m */; };
@@ -75,7 +79,6 @@
 		20407DA52355B3A8001F0898 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20407D932355B3A7001F0898 /* ShareSDK.framework */; };
 		20407DA82355B5DA001F0898 /* AppDelegate+ThirdPartyRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 20407DA62355B5D9001F0898 /* AppDelegate+ThirdPartyRegister.m */; };
 		20409F0D2366901F00D726E5 /* ContactListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20409F082366901F00D726E5 /* ContactListVC.m */; };
-		20409F0E2366901F00D726E5 /* AddOrEditContactVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20409F092366901F00D726E5 /* AddOrEditContactVC.xib */; };
 		20409F0F2366901F00D726E5 /* AddOrEditContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20409F0C2366901F00D726E5 /* AddOrEditContactVC.m */; };
 		204272A32370392F008A438C /* TicketListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 204272A12370392F008A438C /* TicketListCell.m */; };
 		204272A42370392F008A438C /* TicketListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 204272A22370392F008A438C /* TicketListCell.xib */; };
@@ -275,7 +278,6 @@
 		B9DFBA4F22F044B400A10FE0 /* TicketModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DFBA4E22F044B400A10FE0 /* TicketModel.m */; };
 		B9ED286222FFF94C009AA67B /* ForgetPasVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9ED286022FFF94C009AA67B /* ForgetPasVC.m */; };
 		B9EE0E0222F0582F001D1E8C /* HomeCityHotcityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EE0E0022F0582F001D1E8C /* HomeCityHotcityCell.m */; };
-		B9EE0E0322F0582F001D1E8C /* HomeCityHotcityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9EE0E0122F0582F001D1E8C /* HomeCityHotcityCell.xib */; };
 		B9EE0E0722F05EAD001D1E8C /* HomeCityHotcityCollectionTagsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EE0E0522F05EAD001D1E8C /* HomeCityHotcityCollectionTagsViewCell.m */; };
 		B9EE0E0C22F0817C001D1E8C /* BookNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EE0E0B22F0817C001D1E8C /* BookNoticeView.m */; };
 		B9EE0E1022F09B2A001D1E8C /* TicketBookVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EE0E0E22F09B2A001D1E8C /* TicketBookVC.m */; };
@@ -348,6 +350,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04261BF624458E7100DCC51C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddOrEditContactVC.xib; sourceTree = "<group>"; };
+		04261BF924458E7900DCC51C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddOrEditContactVC.strings; sourceTree = "<group>"; };
+		04261BFB24458E7E00DCC51C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AddOrEditContactVC.strings"; sourceTree = "<group>"; };
+		04261BFD24458E8100DCC51C /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/AddOrEditContactVC.strings; sourceTree = "<group>"; };
+		04261BFF24458FC900DCC51C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HomeCityHotcityCell.xib; sourceTree = "<group>"; };
+		04261C0224458FCC00DCC51C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HomeCityHotcityCell.strings; sourceTree = "<group>"; };
+		04261C0424458FCE00DCC51C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/HomeCityHotcityCell.strings"; sourceTree = "<group>"; };
+		04261C0624458FD000DCC51C /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/HomeCityHotcityCell.strings; sourceTree = "<group>"; };
+		04261C0A2445994700DCC51C /* CellPendIngOrderNoPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellPendIngOrderNoPay.h; sourceTree = "<group>"; };
+		04261C0B2445994700DCC51C /* CellPendIngOrderNoPay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellPendIngOrderNoPay.m; sourceTree = "<group>"; };
+		04261C0C2445994700DCC51C /* CellPendIngOrderNoPay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellPendIngOrderNoPay.xib; sourceTree = "<group>"; };
 		043C9C5B243EC25000BC1B84 /* TicketOrderDateilsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketOrderDateilsVC.h; sourceTree = "<group>"; };
 		043C9C5C243EC25000BC1B84 /* TicketOrderDateilsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketOrderDateilsVC.m; sourceTree = "<group>"; };
 		043C9C5E243EC42B00BC1B84 /* TicketOrderDateilsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketOrderDateilsView.h; sourceTree = "<group>"; };
@@ -468,7 +481,6 @@
 		20407DA62355B5D9001F0898 /* AppDelegate+ThirdPartyRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ThirdPartyRegister.m"; sourceTree = "<group>"; };
 		20407DA72355B5DA001F0898 /* AppDelegate+ThirdPartyRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ThirdPartyRegister.h"; sourceTree = "<group>"; };
 		20409F082366901F00D726E5 /* ContactListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListVC.m; sourceTree = "<group>"; };
-		20409F092366901F00D726E5 /* AddOrEditContactVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddOrEditContactVC.xib; sourceTree = "<group>"; };
 		20409F0A2366901F00D726E5 /* AddOrEditContactVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOrEditContactVC.h; sourceTree = "<group>"; };
 		20409F0B2366901F00D726E5 /* ContactListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListVC.h; sourceTree = "<group>"; };
 		20409F0C2366901F00D726E5 /* AddOrEditContactVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOrEditContactVC.m; sourceTree = "<group>"; };
@@ -851,7 +863,6 @@
 		B9ED286022FFF94C009AA67B /* ForgetPasVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgetPasVC.m; sourceTree = "<group>"; };
 		B9EE0DFF22F0582F001D1E8C /* HomeCityHotcityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCityHotcityCell.h; sourceTree = "<group>"; };
 		B9EE0E0022F0582F001D1E8C /* HomeCityHotcityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCityHotcityCell.m; sourceTree = "<group>"; };
-		B9EE0E0122F0582F001D1E8C /* HomeCityHotcityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCityHotcityCell.xib; sourceTree = "<group>"; };
 		B9EE0E0422F05EAD001D1E8C /* HomeCityHotcityCollectionTagsViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCityHotcityCollectionTagsViewCell.h; sourceTree = "<group>"; };
 		B9EE0E0522F05EAD001D1E8C /* HomeCityHotcityCollectionTagsViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCityHotcityCollectionTagsViewCell.m; sourceTree = "<group>"; };
 		B9EE0E0A22F0817C001D1E8C /* BookNoticeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookNoticeView.h; sourceTree = "<group>"; };
@@ -1462,7 +1473,7 @@
 				20409F082366901F00D726E5 /* ContactListVC.m */,
 				20409F0A2366901F00D726E5 /* AddOrEditContactVC.h */,
 				20409F0C2366901F00D726E5 /* AddOrEditContactVC.m */,
-				20409F092366901F00D726E5 /* AddOrEditContactVC.xib */,
+				04261BF724458E7100DCC51C /* AddOrEditContactVC.xib */,
 			);
 			path = Contact;
 			sourceTree = "<group>";
@@ -2000,7 +2011,7 @@
 				B9D8135322E429AD00C2FA92 /* HomeCityCell.xib */,
 				B9EE0DFF22F0582F001D1E8C /* HomeCityHotcityCell.h */,
 				B9EE0E0022F0582F001D1E8C /* HomeCityHotcityCell.m */,
-				B9EE0E0122F0582F001D1E8C /* HomeCityHotcityCell.xib */,
+				04261C0024458FC900DCC51C /* HomeCityHotcityCell.xib */,
 				B9EE0E0422F05EAD001D1E8C /* HomeCityHotcityCollectionTagsViewCell.h */,
 				B9EE0E0522F05EAD001D1E8C /* HomeCityHotcityCollectionTagsViewCell.m */,
 				B97FE403230264CE00CCE2D1 /* CellHomeButtomViewCell.h */,
@@ -2207,6 +2218,9 @@
 				FAE8A59822CAEFC700D0C670 /* CellPendingOlder.h */,
 				FAE8A59922CAEFC700D0C670 /* CellPendingOlder.m */,
 				FAE8A59A22CAEFC700D0C670 /* CellPendingOlder.xib */,
+				04261C0A2445994700DCC51C /* CellPendIngOrderNoPay.h */,
+				04261C0B2445994700DCC51C /* CellPendIngOrderNoPay.m */,
+				04261C0C2445994700DCC51C /* CellPendIngOrderNoPay.xib */,
 				FAE8A59D22CAF3EE00D0C670 /* CellCompleted.h */,
 				FAE8A59E22CAF3EE00D0C670 /* CellCompleted.m */,
 				FAE8A59F22CAF3EE00D0C670 /* CellCompleted.xib */,
@@ -2519,7 +2533,7 @@
 			files = (
 				B987A3E922EDEDA3008A8138 /* LXCalendar_leftArrow@3x.png in Resources */,
 				B97FE3EE2302487F00CCE2D1 /* TicketListVC.xib in Resources */,
-				B9EE0E0322F0582F001D1E8C /* HomeCityHotcityCell.xib in Resources */,
+				04261BFE24458FC900DCC51C /* HomeCityHotcityCell.xib in Resources */,
 				20B7F5C823727498005E65E4 /* GetOnOffListCell.xib in Resources */,
 				204F512B23710D6B007D4B95 /* BusImageVC.xib in Resources */,
 				B96C922622F9117E007C34AC /* MineVC.xib in Resources */,
@@ -2544,6 +2558,7 @@
 				B96C922C22F9118B007C34AC /* ModifyThePhoneVC.xib in Resources */,
 				B97FE3F7230251AD00CCE2D1 /* TicketBookVC.xib in Resources */,
 				B921A97F22D9B3EF00E78D86 /* RegisteredViewController.xib in Resources */,
+				04261C0E2445994700DCC51C /* CellPendIngOrderNoPay.xib in Resources */,
 				20407D972355B3A7001F0898 /* README.txt in Resources */,
 				FABC138622EDC7BB00C06947 /* SelectPayTypeVC.xib in Resources */,
 				20CF3C232356BC4500FB78D0 /* unchecked@3x.png in Resources */,
@@ -2556,7 +2571,7 @@
 				20407D9D2355B3A8001F0898 /* ShareSDKUI.bundle in Resources */,
 				B985812B23016A12008FF7F9 /* CellHomeTopView.xib in Resources */,
 				B9F9F98C22EDC63C00EEDA2B /* LogisticsOrderCell.xib in Resources */,
-				20409F0E2366901F00D726E5 /* AddOrEditContactVC.xib in Resources */,
+				04261BF524458E7100DCC51C /* AddOrEditContactVC.xib in Resources */,
 				2080EEFC23B9E780003783B5 /* ImagesPicker.xcassets in Resources */,
 				B9581204230CDD5F00661BD9 /* ShareView.xib in Resources */,
 				FAA67B9122C5BE45004633DE /* CellAddressList.xib in Resources */,
@@ -2727,6 +2742,7 @@
 				FA3DC5C522C4B76A00B794AC /* PersonalVC.m in Sources */,
 				B9F9F9A322EDE22400EEDA2B /* LXCalendarHearder.m in Sources */,
 				B9F9F98122ED676A00EEDA2B /* UITextView+CQCategory.m in Sources */,
+				04261C0D2445994700DCC51C /* CellPendIngOrderNoPay.m in Sources */,
 				204F5115237100FF007D4B95 /* BusCompanyInfoVC.m in Sources */,
 				204F512623710B0D007D4B95 /* YDScrollView.m in Sources */,
 				B921A97922D9990100E78D86 /* MBManager.m in Sources */,
@@ -2877,6 +2893,28 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		04261BF724458E7100DCC51C /* AddOrEditContactVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04261BF624458E7100DCC51C /* Base */,
+				04261BF924458E7900DCC51C /* en */,
+				04261BFB24458E7E00DCC51C /* zh-Hans */,
+				04261BFD24458E8100DCC51C /* vi */,
+			);
+			name = AddOrEditContactVC.xib;
+			sourceTree = "<group>";
+		};
+		04261C0024458FC900DCC51C /* HomeCityHotcityCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04261BFF24458FC900DCC51C /* Base */,
+				04261C0224458FCC00DCC51C /* en */,
+				04261C0424458FCE00DCC51C /* zh-Hans */,
+				04261C0624458FD000DCC51C /* vi */,
+			);
+			name = HomeCityHotcityCell.xib;
+			sourceTree = "<group>";
+		};
 		2080EEDF23B9E780003783B5 /* JKImagePickerController.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

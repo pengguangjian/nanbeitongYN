@@ -232,6 +232,12 @@
     
     self.selectIndex = indexPath;
     
+    TicketModel *model = [TicketModel mj_objectWithKeyValues:self.dataArray[indexPath.row]];
+    if(model.least_count.intValue <=0)
+    {
+        [SVProgressHUD showInfoWithStatus:LS(@"票已售完")];
+        return;;
+    }
     [self.bookNoticeView showMenu];
     
 }

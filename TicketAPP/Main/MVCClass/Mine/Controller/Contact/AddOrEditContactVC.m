@@ -42,9 +42,9 @@
         self.iphoneTF.text = _co.phone;
         self.emailTF.text = _co.email;
         if ([_co.card_type intValue] == 1) {
-            self.certificateTypeTF.text = @"护照";
+            self.certificateTypeTF.text = LS(@"护照");
         } else if ([_co.card_type intValue] == 2) {
-            self.certificateTypeTF.text = @"身份证";
+            self.certificateTypeTF.text = LS(@"身份证");
         }
         self.cardNoTF.text = _co.card_number;
         
@@ -192,12 +192,12 @@
     NSMutableArray *typeArr = [[NSMutableArray alloc] init];
     ColumnTypeObj *idCardCto = [[ColumnTypeObj alloc] init];
     idCardCto.id = [NSNumber numberWithInt:2];
-    idCardCto.name = @"身份证";
+    idCardCto.name = LS(@"身份证");
     [typeArr addObject:idCardCto];
 
     ColumnTypeObj *cto = [[ColumnTypeObj alloc] init];
     cto.id = [NSNumber numberWithInt:1];
-    cto.name = @"护照";
+    cto.name = LS(@"护照");
     [typeArr addObject:cto];
 
     FESeletTypeView *seletTypeView = [FESeletTypeView sharedView:typeArr];

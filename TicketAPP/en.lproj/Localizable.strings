@@ -15,6 +15,76 @@
 "请选择方式" = "Please select a method";
 "拍照" = "Photograph";
 "从相册中选取" = "Select from album";
+"支付" = "Pay";
+///车票订单详情
+"全程时间" = "Full time";
+"起点" = "Starting point";
+"终点" = "End";
+"上车点" = "Pick up point";
+"下车点" = "Drop off point";
+"座位号" = "Seat number";
+"价  格" = "Price";
+"支付时间" = "Payment time";
+"订单号" = "Order number";
+"订单编号" = "Order number";
+"订单状态" = "Order Status";
+"备  注" = "Remarks";
+"申请退款" = "Request a refund";
+
+"预计到达" = "ETA";
+"预定时间" = "Scheduled time";
+"支付超时" = "Payment timeout";
+"已发车" = "Departed";
+"已退款" = "Refunded";
+"联系人信息" = "Contact information";
+"联系人" = "Contact person";
+"手机号" = "Phone number";
+
+"退款须知" = "Notice";
+"评论" = "Comments";
+"邮箱" = "Email";
+"车位预约中" = "Parking reservation";
+"余票" = "Number of votes remaining";
+"评价星级" = "Star rating";
+
+"温馨提示" = "Remind";
+"我已知晓"= "I already know";
+"选择座位"= "Choose a seat";
+"层" = "Floor";
+"请选择座位号" = "Choose a seat";
+"请选择联系人" = "Please select a contact";
+"用于发送购物信息" = "Used to get ticket information";
+"请选择上车点" = "Please select a pick up point";
+"备注" = "";
+"请选择下车点" = "Please select a pay point";
+"汽车运营信息" = "Operator garage information";
+"汽车图片" = "Car image";
+"汽车总评分" = "Total score";
+"取消政策" = "Cancel policy";
+"取消时间" = "Cancel time";
+"扣费比例" = "Deduction rate";
+"搜索城市" = "Please enter city name";
+"确定" = "confirm";
+"小时" = "h";
+"分钟" = "min";
+
+"联系人列表" = "Contact list";
+"添加联系人" = "Add contact";
+"编辑联系人" = "Edit contact";
+"护照" = "Passport";
+"身份证" = "ID card";
+"新建联系人" = "New contact";
+
+"汽车质量" = "Vehicle quality";
+"守时" = "On time";
+"服务" = "Service";
+"票价" = "Price";
+"开车前%@小时内" = "%@-%@-%@ Within %@ hours before driving";
+"开车前%@小时至%@小时内" = "%@-%@-%@ %@ to %@ hours before driving";
+"开车前%@小时以上" = "%@-%@-%@ More than %@ hours before driving";
+
+"票已售完" = "Tickets are sold out, please choose another train!";
+
 
 /**登录界面**/
 "绑定手机" = "Binding phone";
@@ -146,15 +216,10 @@
 "定金" = "Earnest money";
 "尾款" = "Tail money";
   
-"汽车质量" = "Vehicle quality";
-"守时" = "On time";
-"服务" = "Service";
-"票价" = "Price";
-"支付" = "Pay";
+
 "获取验证码成功" = "Received verification code successfully";
 "已发送" = "Sent";
 "根据公交运营商的要求，提早去公交车站的顾客可以选择自己的座位。" = "At the request of the operator garage, customers come to the station early to choose a seat.";
-"全程时间：" = "Full-time:";
 "电话" = "Phone";
 "可备注其他上车点" = "Can note other pick-up point";
 "请输入其他上车点" = "Please enter another pick-up point";
@@ -166,54 +231,11 @@
 "没有上下车点信息，默认为起始或终点站" = "No pick-up point information, default is start or end stationn";
 "没有路线信息，请选择其他路线" = "No route information, please select another route";
 "警告" = "Warning";
-"小时" = "h";
-"分钟" = "min";
-
-"开车前%@小时内" = "%@-%@-%@ Within %@ hours before driving";
-"开车前%@小时至%@小时内" = "%@-%@-%@ %@ to %@ hours before driving";
-"开车前%@小时以上" = "%@-%@-%@ More than %@ hours before driving";
-
-"余票" = "Number of votes remaining";
-"温馨提示" = "Remind";
-"我已知晓"= "我已知晓";
-"选择座位"= "Choose a seat";
-"层" = "Floor";
-"请选择座位号" = "Choose a seat";
-"请选择联系人" = "Please select a contact";
-"用于发送购物信息" = "Used to get ticket information";
-"请选择上车点" = "Please select a pick up point";
-"备注" = "";
-"请选择下车点" = "Please select a pay point";
-"汽车运营信息" = "Operator garage information";
-"汽车图片" = "Car image";
-"汽车总评分" = "Total score";
-"取消政策" = "Cancel policy";
-"取消时间" = "Cancel time";
-"扣费比例" = "Deduction rate";
-"搜索城市" = "Please enter city name";
-"确定" = "confirm";
 
 
-///车票订单详情
-"起点" = "Starting point";
-"终点" = "End";
-"上车点" = "Pick up point";
-"下车点" = "Drop off point";
-"座位号" = "Seat number";
-"价  格" = "Price";
-"全程时间" = "Full time";
-"支付时间" = "Payment time";
-"订单号" = "Order number";
-"订单编号" = "Order number";
-"订单状态" = "Order Status";
-"备  注" = "Remarks";
-"申请退款" = "Request a refund";
 
-"预计到达" = "ETA";
-"预定时间" = "Scheduled time";
-"支付超时" = "Payment timeout";
-"已发车" = "Departed";
-"已退款" = "Refunded";
-"联系人信息" = "Contact information";
-"联系人" = "Contact person";
-"手机号" = "Phone number";
+
+
+
+
+

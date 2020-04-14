@@ -53,15 +53,15 @@
     
     self.XLnumber = @"1";
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate *date = [formatter dateFromString:self.model.setout_time];
-    NSDateFormatter *formatterddd = [[NSDateFormatter alloc] init];
-    [formatterddd setDateFormat:@"MM-dd HH:mm"];
-    NSString *oneDayStr = [formatterddd stringFromDate:date];
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//    NSDate *date = [formatter dateFromString:self.model.setout_time];
+//    NSDateFormatter *formatterddd = [[NSDateFormatter alloc] init];
+//    [formatterddd setDateFormat:@"MM-dd HH:mm"];
+//    NSString *oneDayStr = [formatterddd stringFromDate:date];
     
     NSString *chufa = NSBundleLocalizedString(@"出发");
-    NSString *titStr = [NSString stringWithFormat:@"%@%@",oneDayStr,chufa];
+    NSString *titStr = [NSString stringWithFormat:@"%@%@",self.model.setout_time,chufa];
     self.navigationItem.title = titStr;
     
     NSString *zhannaem = [NSString stringWithFormat:@"%@-%@",self.model.start_name,self.model.end_name];
@@ -75,7 +75,7 @@
     
     NSInteger hour = [_model.duration integerValue]/60;
     NSInteger minute = [_model.duration integerValue]%60;
-    NSString *totalTimeStr = LS(@"全程时间：");
+    NSString *totalTimeStr = [NSString stringWithFormat:@"%@：",LS(@"全程时间")];
     if (hour>0) {
         totalTimeStr = [totalTimeStr stringByAppendingFormat:@"%zi%@", hour,LS(@"小时")];
     }
@@ -177,7 +177,7 @@
             totalPrice += [so.price doubleValue];
         }
         
-        NSString *numdd = [NSString stringWithFormat:@"%lf",totalPrice];
+        NSString *numdd = [NSString stringWithFormat:@"%.0lf",totalPrice];
         self.orderpr.text = [NSString stringWithFormatPrice:numdd];
         
         NSString *gong = NSBundleLocalizedString(@"共");
@@ -226,6 +226,8 @@
     
     [self upddddd];
 }
+
+#pragma mark - 提交订单
 - (IBAction)playeOK:(id)sender {
     
     [self.view endEditing:YES];
@@ -240,7 +242,7 @@
         return;
     }
     
-    [SVProgressHUD showWithStatus:@"车位预约中"];
+    [SVProgressHUD showWithStatus:LS(@"车位预约中")];
     
     
     WEAK_SELF;
@@ -287,10 +289,18 @@
     if (getOnObj) {
         [dataDic setObject:getOnObj.id forKey:@"Pickup_id"];
         [dataDic setObject:getOnObj.name forKey:@"pickup"];
+        if(getOnObj.muUserAddress.length>0)
+        {
+            [dataDic setObject:getOnObj.muUserAddress forKey:@"pickup"];
+        }
     }
     if (getOffObj) {
         [dataDic setObject:getOffObj.id forKey:@"drop_off_point_id"];
         [dataDic setObject:getOffObj.name forKey:@"drop_off_info"];
+        if(getOffObj.muUserAddress.length>0)
+        {
+            [dataDic setObject:getOffObj.muUserAddress forKey:@"drop_off_info"];
+        }
     }
     
     if (self.getOnTextField.text.length>0) {
@@ -300,6 +310,7 @@
     if (self.getOffTextField.text.length>0) {
         [dataDic setObject:self.getOffTextField.text forKey:@"drop_off_info"];
     }
+    
     
     [hm getRequetInterfaceData:dataDic withInterfaceName:@"api/ticketorder/ordersubmit"];
 }
@@ -385,24 +396,33 @@
         self.phoneAndEmailViewHeight.constant = 40.0f;
         self.contactView.hidden = NO;
         self.name.text = co.name;
-        self.phoneAndEmail.text = [NSString stringWithFormat:@"电话：%@  邮箱：%@",co.phone,co.email];
+        self.phoneAndEmail.text = [NSString stringWithFormat:@"%@：%@  %@：%@",LS(@"电话"),co.phone,LS(@"邮箱"),co.email];
     }];
     [self.navigationController pushViewController:contactListVC animated:YES];
     
 }
 
+#pragma mark - 选择下车点
 - (IBAction)getOffBtnOnTouch:(id)sender {
     
     GetOnOffListVC *vc = [[GetOnOffListVC alloc] initWithNibName:@"GetOnOffListVC" bundle:nil];
     vc.trip_id = _model.ID;
-    vc.titleStr = @"请选择下车点";
+    vc.titleStr = LS(@"请选择下车点");
     vc.getOffHander = ^(id  _Nonnull obj) {
-        getOffObj = obj;
+        self->getOffObj = obj;
         
-        NSArray *componds = [getOffObj.real_time componentsSeparatedByString:@" "];
-        _getOffLabel.text = [NSString stringWithFormat:@"%@ %@",[componds firstObject], getOffObj.name];
+        NSArray *componds = [self->getOffObj.real_time componentsSeparatedByString:@" "];
+        self->_getOffLabel.text = [NSString stringWithFormat:@"%@ %@",[componds firstObject], self->getOffObj.name];
+        if([NSBundle getLanguagekey] == LanguageEN)
+        {
+            if(self->getOnObj.english_name.length>0)
+            {
+                self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@",[componds firstObject], self->getOnObj.english_name];
+            }
+            
+        }
         
-        if ([getOffObj.unfixed_point intValue] == 1) {
+        if ([self->getOffObj.unfixed_point intValue] == 1) {
             [self setIsShowGetOffInputView:YES];
         } else {
             [self setIsShowGetOffInputView:NO];
@@ -411,19 +431,32 @@
     [self.navigationController pushViewController:vc animated:YES];
     
 }
-
+#pragma mark - 选择上车点
 - (IBAction)getOnBtnOnTouch:(id)sender {
     
     GetOnOffListVC *vc = [[GetOnOffListVC alloc] initWithNibName:@"GetOnOffListVC" bundle:nil];
     vc.trip_id = _model.ID;
-    vc.titleStr = @"请选择上车点";
+    vc.titleStr = LS(@"请选择上车点");
     vc.getONHandler = ^(id  _Nonnull obj) {
-        getOnObj = obj;
+        self->getOnObj = obj;
         
-        NSArray *componds = [getOnObj.real_time componentsSeparatedByString:@" "];
-        _getOnLabel.text = [NSString stringWithFormat:@"%@ %@",[componds firstObject], getOnObj.name];
+        NSArray *componds = [self->getOnObj.real_time componentsSeparatedByString:@" "];
         
-        if ([getOnObj.unfixed_point intValue] == 1) {
+        
+        self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@",[componds firstObject], self->getOnObj.name];
+        
+        if([NSBundle getLanguagekey] == LanguageEN)
+        {
+            if(self->getOnObj.english_name.length>0)
+            {
+                self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@",[componds firstObject], self->getOnObj.english_name];
+            }
+            
+        }
+        
+        
+        
+        if ([self->getOnObj.unfixed_point intValue] == 1) {
             [self setIsShowGetOnInputView:YES];
         } else {
             [self setIsShowGetOnInputView:NO];
@@ -447,7 +480,7 @@
 - (void)setIsShowGetOnInputView:(BOOL)isShow {
     self.getOnTextField.text = nil;
     if (isShow) {
-        self.getOnInputViewAlignTop.constant = 10;
+        self.getOnInputViewAlignTop.constant = 5;
         self.getOnInputViewHeight.constant = 50;
         self.getOnInputView.hidden = NO;
         self.getOnDescLabel.hidden = NO;
@@ -464,7 +497,7 @@
 - (void)setIsShowGetOffInputView:(BOOL)isShow {
     self.getOffTextField.text = nil;
     if (isShow) {
-        self.getOffInputViewAlignTop.constant = 10;
+        self.getOffInputViewAlignTop.constant = 5;
         self.getOffInputViewHeight.constant = 50;
         self.getOffInputView.hidden = NO;
         self.getOffDescLabel.hidden = NO;

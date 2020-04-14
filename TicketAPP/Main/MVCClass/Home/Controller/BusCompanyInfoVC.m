@@ -43,7 +43,7 @@
         
     MSNavSliderMenuStyleModel *model = [MSNavSliderMenuStyleModel new];
         
-    NSArray *titles = @[@"退款须知", LS(@"汽车图片"), @"评论"];
+    NSArray *titles = @[LS(@"退款须知"), LS(@"汽车图片"), LS(@"评论")];
         
     model.menuTitles = [titles copy];
         

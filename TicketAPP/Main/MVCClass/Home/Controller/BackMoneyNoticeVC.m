@@ -219,14 +219,56 @@
         ro.to = @"0";
     }
     
+    
+//    "开车前%@小时内" = "%@-%@-%@ Within %@ hours before driving";
+//    "开车前%@小时至%@小时内" = "%@-%@-%@ %@ to %@ hours before driving";
+//    "开车前%@小时以上" = "%@-%@-%@ More than %@ hours before driving";
+    
+//    "%@-%@-%@ 开车前%@小时内" = "%@-%@-%@ Trước khi khởi hành trong vòng %@ tiếng";
+//    "%@-%@-%@ 开车前%@小时至%@小时内" = "%@-%@-%@ Trước khi khởi hành trong vòng từ %@ đến %@ tiếng";
+//    "%@-%@-%@ 开车前%@小时以上" = "%@-%@-%@ Trước khi khởi hành trên %@ tiếng";
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     if ([ro.from intValue] == 0) {
-        cell.textLabel.text = [NSString stringWithFormat:LS(@"%@-%@-%@ 开车前%@小时内"),[componds firstObject],[componds objectAtIndex:1],[componds lastObject],ro.to];
+        NSString *strtemp = [NSString stringWithFormat:@"%@-%@-%@ 开车前%@小时内",[componds firstObject],[componds objectAtIndex:1],[componds lastObject],ro.to];
+        if([NSBundle getLanguagekey] == LanguageVI)
+        {
+            strtemp = [NSString stringWithFormat:@"%@-%@-%@ Trước khi khởi hành trong vòng %@ tiếng",[componds firstObject],[componds objectAtIndex:1],[componds lastObject],ro.to];
+        }
+        else if([NSBundle getLanguagekey] == LanguageEN)
+        {
+            strtemp = [NSString stringWithFormat:@"%@-%@-%@ Within %@ hours before driving",[componds firstObject],[componds objectAtIndex:1],[componds lastObject],ro.to];
+        }
+        cell.textLabel.text = strtemp;
 
     } else if ([ro.to intValue] == 0) {
-        cell.textLabel.text = [NSString stringWithFormat:LS(@"%@-%@-%@ 开车前%@小时以上"),[componds firstObject],[componds objectAtIndex:1],[componds lastObject],ro.from];
+        
+        NSString *strtemp = [NSString stringWithFormat:@"%@-%@-%@ 开车前%@小时以上",[componds firstObject],[componds objectAtIndex:1],[componds lastObject],ro.to];
+        if([NSBundle getLanguagekey] == LanguageVI)
+        {
+            strtemp = [NSString stringWithFormat:@"%@-%@-%@ Trước khi khởi hành trên %@ tiếng",[componds firstObject],[componds objectAtIndex:1],[componds lastObject],ro.to];
+        }
+        else if([NSBundle getLanguagekey] == LanguageEN)
+        {
+            strtemp = [NSString stringWithFormat:@"%@-%@-%@ More than %@ hours before driving",[componds firstObject],[componds objectAtIndex:1],[componds lastObject],ro.to];
+        }
+        cell.textLabel.text = strtemp;
+        
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@",ro.fee,ro.currency_description];
     } else {
-        cell.textLabel.text = [NSString stringWithFormat:LS(@"%@-%@-%@ 开车前%@小时-开车前%@小时"),[componds firstObject],[componds objectAtIndex:1],[componds lastObject],ro.from,ro.to];
+        
+        NSString *strtemp = [NSString stringWithFormat:@"%@-%@-%@ 开车前%@小时至%@小时内",[componds firstObject],[componds objectAtIndex:1],[componds lastObject],ro.from,ro.to];
+        if([NSBundle getLanguagekey] == LanguageVI)
+        {
+            strtemp = [NSString stringWithFormat:@"%@-%@-%@ Trước khi khởi hành trong vòng từ %@ đến %@ tiếng",[componds firstObject],[componds objectAtIndex:1],[componds lastObject],ro.from,ro.to];
+        }
+        else if([NSBundle getLanguagekey] == LanguageEN)
+        {
+            strtemp = [NSString stringWithFormat:@"%@-%@-%@ %@ to %@ hours before driving",[componds firstObject],[componds objectAtIndex:1],[componds lastObject],ro.from,ro.to];
+        }
+        cell.textLabel.text = strtemp;
+        
+        
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@",ro.fee,ro.currency_description];
     }
     

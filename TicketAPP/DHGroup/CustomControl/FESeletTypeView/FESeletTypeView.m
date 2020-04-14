@@ -92,7 +92,7 @@
     //    }];
     
     UIButton *closeAddBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [closeAddBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [closeAddBtn setTitle:LS(@"取消") forState:UIControlStateNormal];
     [closeAddBtn setTitleColor:COL2 forState:UIControlStateHighlighted];
     [closeAddBtn setTitleColor:COL1 forState:UIControlStateNormal];
     closeAddBtn.titleLabel.font = [UIFont systemFontOfSize:18];

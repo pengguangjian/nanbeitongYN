@@ -17,6 +17,8 @@
 
 #import "TicketOrderDateilsVC.h"
 
+#import "CellPendIngOrderNoPay.h"
+
 @interface TicketOrderVC ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -109,8 +111,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if([self.tickeType isEqualToString:@"1"] ||
-       [self.tickeType isEqualToString:@"2"] ){
+    
+    
+    if([self.tickeType isEqualToString:@"1"])
+    {
+        static NSString *identifier = @"CellPendIngOrderNoPay";
+        CellPendIngOrderNoPay * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            cell= [[[NSBundle  mainBundle]  loadNibNamed:@"CellPendIngOrderNoPay" owner:self options:nil]  lastObject];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        TicketOrderModel *model = [TicketOrderModel mj_objectWithKeyValues:self.dataArray[indexPath.row]];
+        cell.model = model;
+        WEAK_SELF;
+        [cell setSelectCellViewBloak:^(TicketOrderModel *model){
+            [weakSelf goPalyAndTukKuan:model];
+        }];
+        
+        return cell;
+    }
+    else if([self.tickeType isEqualToString:@"2"] ){
         static NSString *identifier = @"CellPendingOlder";
         CellPendingOlder * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (cell == nil) {
@@ -123,7 +143,7 @@
         [cell setSelectCellViewBloak:^(TicketOrderModel *model){
             [weakSelf goPalyAndTukKuan:model];
         }];
-    
+        
         return cell;
     }else{
         

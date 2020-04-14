@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSNumber *ob_setout_time;
 @property (nonatomic, copy) NSString *start_name_e;
 @property (nonatomic, copy) NSString *booking_pay;
-
+@property (nonatomic, copy) NSString *failure_description_date;
 
 @end
 
