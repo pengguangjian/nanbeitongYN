@@ -224,7 +224,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 150;
+    return 160;
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -284,12 +284,19 @@
 -(void)passengerNotesBtnOnTouch:(UIButton*)btn {
     
     TicketModel *model = [TicketModel mj_objectWithKeyValues:self.dataArray[btn.tag]];
+    if(model.notification_english_label.length>0)
+    {
+        XSZActivityRoleView *activityDialogView = [XSZActivityRoleView sharedView:model];
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window addSubview:activityDialogView];
+        
+        [activityDialogView show];
+    }
+    else
+    {
+        [SVProgressHUD showInfoWithStatus:LS(@"没有内容")];
+    }
     
-    XSZActivityRoleView *activityDialogView = [XSZActivityRoleView sharedView:model];
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    [window addSubview:activityDialogView];
-    
-    [activityDialogView show];
     
 }
 

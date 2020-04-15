@@ -45,7 +45,16 @@ NS_ASSUME_NONNULL_BEGIN
 ///email
 @property (nonatomic, retain) NSString *email;
 
-
+///上车点附加费
+@property (nonatomic, retain) NSString *pickup_surcharge;
+@property (nonatomic, retain) NSString *pickup_points_price_txt_c;
+@property (nonatomic, retain) NSString *pickup_points_price_txt_e;
+@property (nonatomic, retain) NSString *pickup_points_price_txt_v;
+///下车点附加费
+@property (nonatomic, retain) NSString *drop_off_surcharge;
+@property (nonatomic, retain) NSString *drop_off_points_price_txt_c;
+@property (nonatomic, retain) NSString *drop_off_points_price_txt_e;
+@property (nonatomic, retain) NSString *drop_off_points_price_txt_v;
 
 +(TickerOrderDateilsModel *)dicToModelValue:(NSDictionary *)dic;
 

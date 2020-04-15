@@ -43,6 +43,10 @@
     _model = model;
     
     self.passengerNotesLabel.text = model.notification_english_label;
+    if(model.notification_english_label.length<1)
+    {
+        self.passengerNotesLabel.text = LS(@"乘车须知");
+    }
 //
     self.startTimeLabel.text = [Util time_hourSecondTime:model.station_begin];
     self.startStationLable.text = model.from_name;

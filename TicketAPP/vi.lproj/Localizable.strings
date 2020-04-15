@@ -233,3 +233,13 @@
 "护照" = "Hộ chiếu";
 "身份证" = "Chứng minh nhân dân";
 "新建联系人" = "Liên hệ mới";
+
+"请输入下车点信息" = "Vui lòng nhập thông tin điểm thả";
+"请输入上车点信息" = "Vui lòng nhập thông tin điểm đón";
+"乘车须知" = "Những lưu ý khi đi xe";
+"没有内容" = "Không có nội dung";
+
+"请输入其他上车点1" = "Vui lòng nhập một điểm đón khác (tiếng Anh hoặc bính âm)";
+"请输入其他下车点1" = "Vui lòng nhập một điểm thả xuống khác (tiếng Anh hoặc bính âm)";
+"成功保存到相册" = "Lưu thành công vào album";
+"保存失败" = "Lưu thất bại";

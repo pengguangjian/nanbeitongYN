@@ -61,6 +61,15 @@
 
 -(void)setTabBarVC
 {
+    
+//    //Tabbar 未选中颜色
+//    if ([UIDevice currentDevice].systemVersion.floatValue < 10.0) {
+//        [UITabBar appearance].tintColor = UIColorFromHex(0x6d6d6d);
+//    } else {
+//        [UITabBar appearance].unselectedItemTintColor = UIColorFromHex(0x6d6d6d);
+//    }
+//    [UITabBar appearance].selectedImageTintColor = UIColorFromHex(0x56b157);
+    
     // 创建自定义tabBar
     MyTabBar *customTabBar = [[MyTabBar alloc] init];
     [customTabBar setBackgroundColor:RGB(245, 244, 243)];

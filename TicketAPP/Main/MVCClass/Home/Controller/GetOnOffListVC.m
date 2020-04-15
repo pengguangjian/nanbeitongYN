@@ -61,7 +61,7 @@
             
             NSArray *arr = nil;
             
-            if ([_titleStr isEqualToString:LS(@"请选择上车点")]) {
+            if ([self->_titleStr isEqualToString:LS(@"请选择上车点")]) {
                 arr = [rd.data valueForKey:@"pickup_points"];
             } else {
                 arr = [rd.data valueForKey:@"drop_off_points_at_arrive"];
@@ -136,7 +136,21 @@
             cell.addrLabel.text = gooo.address_name;
         }
     }
-    cell.beizhuLabel.text = [NSString stringWithFormat:@"%@", gooo.additional_fee_type_txt];
+    cell.beizhuLabel.text = @"";
+    if(gooo.surcharge.intValue >0)
+    {
+        cell.beizhuLabel.text = [NSString stringWithFormat:@"%@", gooo.additional_fee_type_txt_c];
+        if([NSBundle getLanguagekey] == LanguageVI)
+        {
+            cell.beizhuLabel.text = [NSString stringWithFormat:@"%@", gooo.additional_fee_type_txt_v];
+        }
+        else if([NSBundle getLanguagekey] == LanguageEN)
+        {
+            cell.beizhuLabel.text = [NSString stringWithFormat:@"%@", gooo.additional_fee_type_txt_e];
+        }
+    }
+    
+    
     
     
     
@@ -195,8 +209,18 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return cell.frame.size.height;
+    
+    GetOnOffObj *gooo = [dataArr objectAtIndex:indexPath.row];
+    if(gooo.surcharge.intValue>0)
+    {
+        return 90;
+    }
+    else
+    {
+        return 60;
+    }
+//    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+//    return cell.frame.size.height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

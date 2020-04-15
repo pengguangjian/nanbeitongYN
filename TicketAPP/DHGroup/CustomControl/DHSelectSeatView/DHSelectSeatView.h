@@ -21,7 +21,7 @@ typedef void (^DHSelectSeatViewHandler)(NSArray *selectArr);
  *
  *  @return return value instancetype
  */
-+ (instancetype)sharedView:(NSString*)tripID;
++ (instancetype)sharedView:(NSString*)tripID andNoMoSelect:(NSArray *)arr;
 - (void)show;
 
 @end

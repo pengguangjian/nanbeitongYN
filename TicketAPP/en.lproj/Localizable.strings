@@ -6,7 +6,6 @@
   Copyright © 2019 macbook. All rights reserved.
 */
 
-/**工具类**/
 //"加载中" = "Loading";
 "加载中" = "加载中";
 
@@ -16,6 +15,17 @@
 "拍照" = "Photograph";
 "从相册中选取" = "Select from album";
 "支付" = "Pay";
+"请输入下车点信息" = "Please enter the drop-off point information";
+"请输入上车点信息" = "Please enter the pick-up point information";
+"乘车须知" = "Notes for riding";
+"没有内容" = "No content";
+"请输入其他上车点1" = "Please enter another pick-up point (English or Pinyin)";
+"请输入其他下车点1" = "Please enter another drop-off point (English or Pinyin)";
+"电话" = "Phone";
+
+"成功保存到相册" = "Successfully saved to album";
+"保存失败" = "Save failed";
+
 ///车票订单详情
 "全程时间" = "Full time";
 "起点" = "Starting point";
@@ -74,7 +84,7 @@
 "护照" = "Passport";
 "身份证" = "ID card";
 "新建联系人" = "New contact";
-
+"根据公交运营商的要求，提早去公交车站的顾客可以选择自己的座位。" = "At the request of the operator garage, customers come to the station early to choose a seat.";
 "汽车质量" = "Vehicle quality";
 "守时" = "On time";
 "服务" = "Service";
@@ -85,8 +95,15 @@
 
 "票已售完" = "Tickets are sold out, please choose another train!";
 
+"个人资料" = "Personal information";
+"保存" = "Safe";
+"修改绑定手机号码" = "Change your phone number";
+"我的分享" = "My share";
+"关于我们" = "About us";
+"协议声明" = "Agreements and Statements";
+"修改密码" = "Change Password";
+"分享" = "Share";
 
-/**登录界面**/
 "绑定手机" = "Binding phone";
 "请输入手机号码" = "Phone number";
 "请输入验证码" = "Enter verify code";
@@ -101,7 +118,6 @@
 "修改成功" =  "Successfully modified";
 "您还没用同意用户注册协议" = "You have not agreed to the User Registration Agreement.";
 
-/**TabBar界面**/
 "首页" = "Home page";
 "物流" = "Logistics";
 "订单" = "Orders";
@@ -147,16 +163,6 @@
 "票价" = "Ticket Price";
 "热门" = "Popular";
 "选择城市" = "Choosing the City";
-
-/**个人资料界面**/
-"个人资料" = "Personal information";
-"保存" = "Safe";
-"修改绑定手机号码" = "Change your phone number";
-"我的分享" = "My share";
-"关于我们" = "About us";
-"协议声明" = "Agreements and Statements";
-"修改密码" = "Change Password";
-"分享" = "Share";
 
 //物流界面
 "地址列表" = "List of  address";
@@ -219,8 +225,6 @@
 
 "获取验证码成功" = "Received verification code successfully";
 "已发送" = "Sent";
-"根据公交运营商的要求，提早去公交车站的顾客可以选择自己的座位。" = "At the request of the operator garage, customers come to the station early to choose a seat.";
-"电话" = "Phone";
 "可备注其他上车点" = "Can note other pick-up point";
 "请输入其他上车点" = "Please enter another pick-up point";
 "可备注其他下车点" = "Can note other destination point";
@@ -231,11 +235,6 @@
 "没有上下车点信息，默认为起始或终点站" = "No pick-up point information, default is start or end stationn";
 "没有路线信息，请选择其他路线" = "No route information, please select another route";
 "警告" = "Warning";
-
-
-
-
-
 
 
 

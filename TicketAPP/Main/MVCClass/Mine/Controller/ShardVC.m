@@ -64,9 +64,9 @@
     NSData *iamge = UIImagePNGRepresentation(screenimage);
     [self savePhotoWithData:iamge completion:^(NSError *error){
         if (error) {
-            [MBManager showBriefAlert:@"保存失败"];
+            [MBManager showBriefAlert:LS(@"保存失败")];
         }else{
-            [MBManager showBriefAlert:@"成功保存到相册"];
+            [MBManager showBriefAlert:LS(@"成功保存到相册")];
         }
     }];    
     

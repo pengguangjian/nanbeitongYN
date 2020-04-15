@@ -30,6 +30,22 @@
     model.code = [NSString stringWithFormat:@"%@",[dic objectForKey:@"code"]];
     model.order_code = [NSString stringWithFormat:@"%@",[dic objectForKey:@"order_code"]];
     model.order_pay_time = [NSString stringWithFormat:@"%@",[dic objectForKey:@"order_pay_time"]];
+    
+    
+    model.pickup_surcharge = [NSString stringWithFormat:@"%@",[dic objectForKey:@"pickup_surcharge"]];
+    model.drop_off_surcharge = [NSString stringWithFormat:@"%@",[dic objectForKey:@"drop_off_surcharge"]];
+    model.pickup_points_price_txt_c = [NSString stringWithFormat:@"%@",[dic objectForKey:@"pickup_points_price_txt_c"]];
+    model.pickup_points_price_txt_e = [NSString stringWithFormat:@"%@",[dic objectForKey:@"pickup_points_price_txt_e"]];
+    model.pickup_points_price_txt_v = [NSString stringWithFormat:@"%@",[dic objectForKey:@"pickup_points_price_txt_v"]];
+    
+    
+    model.drop_off_points_price_txt_c = [NSString stringWithFormat:@"%@",[dic objectForKey:@"drop_off_points_price_txt_c"]];
+    model.drop_off_points_price_txt_e = [NSString stringWithFormat:@"%@",[dic objectForKey:@"drop_off_points_price_txt_e"]];
+    model.drop_off_points_price_txt_v = [NSString stringWithFormat:@"%@",[dic objectForKey:@"drop_off_points_price_txt_v"]];
+    
+//    model.pickup_surcharge = @"上车附加费用收取100,上车附加费用收取100,上车附加费用收取100,上车附加费用收取100";
+//    model.drop_off_surcharge = @"下车附加费用收取100,下车附加费用收取100,下车附加费用收取100下车附加费用收取100下车附加费用收取100";
+    
     if(model.order_pay_time.length==0)
     {
         model.order_pay_time = NSBundleLocalizedString(@"未支付");

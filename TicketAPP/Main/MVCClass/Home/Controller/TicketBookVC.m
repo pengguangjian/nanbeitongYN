@@ -42,6 +42,8 @@
     [super viewDidLoad];
     
     self.getOffTextField.keyboardType = UIKeyboardTypeASCIICapable;
+    self.getOnTextField.placeholder = LS(@"请输入其他上车点1");
+    self.getOffTextField.placeholder = LS(@"请输入其他下车点1");
      //监听输入内容
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(textFiledEditChanged:)
@@ -176,6 +178,22 @@
             so.price = [so.price stringByReplacingOccurrencesOfString:@"," withString:@""];
             totalPrice += [so.price doubleValue];
         }
+        if(getOffObj)
+        {
+            if(getOffObj.surcharge_type.intValue == 2)
+            {
+                
+                totalPrice += [getOffObj.surcharge doubleValue];
+            }
+        }
+        if(getOnObj)
+        {
+            if(getOnObj.surcharge_type.intValue == 2)
+            {
+                
+                totalPrice += [getOnObj.surcharge doubleValue];
+            }
+        }
         
         NSString *numdd = [NSString stringWithFormat:@"%.0lf",totalPrice];
         self.orderpr.text = [NSString stringWithFormatPrice:numdd];
@@ -183,6 +201,7 @@
         NSString *gong = NSBundleLocalizedString(@"共");
         NSString *ren = NSBundleLocalizedString(@"人");
         NSString *pipoddd = [NSString stringWithFormat:@"%@%zi%@",gong,selectSeatArr.count,ren];
+        
         self.pipoNuber.text = pipoddd;
         
     } else {
@@ -242,6 +261,7 @@
         return;
     }
     
+    
     [SVProgressHUD showWithStatus:LS(@"车位预约中")];
     
     
@@ -291,7 +311,7 @@
         [dataDic setObject:getOnObj.name forKey:@"pickup"];
         if(getOnObj.muUserAddress.length>0)
         {
-            [dataDic setObject:getOnObj.muUserAddress forKey:@"pickup"];
+            [dataDic setObject:[NSString stringWithFormat:@"%@-%@", getOnObj.name,getOnObj.muUserAddress] forKey:@"pickup"];
         }
     }
     if (getOffObj) {
@@ -299,18 +319,18 @@
         [dataDic setObject:getOffObj.name forKey:@"drop_off_info"];
         if(getOffObj.muUserAddress.length>0)
         {
-            [dataDic setObject:getOffObj.muUserAddress forKey:@"drop_off_info"];
+            [dataDic setObject:[NSString stringWithFormat:@"%@-%@",getOffObj.name,getOffObj.muUserAddress] forKey:@"drop_off_info"];
         }
     }
     
-    if (self.getOnTextField.text.length>0) {
+    if(self.getOffTextField.text.length>0)
+    {
         [dataDic setObject:self.getOffTextField.text forKey:@"pickup"];
     }
-    
-    if (self.getOffTextField.text.length>0) {
-        [dataDic setObject:self.getOffTextField.text forKey:@"drop_off_info"];
+    if(self.getOnTextField.text.length>0)
+    {
+        [dataDic setObject:self.getOnTextField.text forKey:@"drop_off_info"];
     }
-    
     
     [hm getRequetInterfaceData:dataDic withInterfaceName:@"api/ticketorder/ordersubmit"];
 }
@@ -355,9 +375,10 @@
     
 }
 
+#pragma mark - 选择座位
 - (void)toSelectSeat {
     
-    DHSelectSeatView *selectSeatView = [DHSelectSeatView sharedView:_model.ID];
+    DHSelectSeatView *selectSeatView = [DHSelectSeatView sharedView:_model.ID andNoMoSelect:selectSeatArr];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:selectSeatView];
     
@@ -392,7 +413,7 @@
     ContactListVC *contactListVC = [[ContactListVC alloc] init];
     [contactListVC setStartSelectSuccessBlock:^(ContactObj *co){
         NSLog(@"");
-        selectCo = co;
+        self->selectCo = co;
         self.phoneAndEmailViewHeight.constant = 40.0f;
         self.contactView.hidden = NO;
         self.name.text = co.name;
@@ -413,14 +434,53 @@
         
         NSArray *componds = [self->getOffObj.real_time componentsSeparatedByString:@" "];
         self->_getOffLabel.text = [NSString stringWithFormat:@"%@ %@",[componds firstObject], self->getOffObj.name];
+        if(self->getOffObj.address.length>0)
+        {
+            self->_getOffLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOffObj.name,self->getOffObj.address];
+        }
         if([NSBundle getLanguagekey] == LanguageEN)
         {
-            if(self->getOnObj.english_name.length>0)
+            if(self->getOffObj.english_name.length>0)
             {
-                self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@",[componds firstObject], self->getOnObj.english_name];
+                self->_getOffLabel.text = [NSString stringWithFormat:@"%@ %@",[componds firstObject], self->getOffObj.english_name];
+                if(self->getOffObj.address_name.length>0)
+                {
+                    self->_getOffLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOffObj.english_name,self->getOffObj.address_name];
+                }
             }
             
         }
+        
+        if(self->getOffObj.muUserAddress.length>0)
+        {
+            
+            self->_getOffLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOffObj.name,self->getOffObj.muUserAddress];
+            if([NSBundle getLanguagekey] == LanguageEN)
+            {
+                if(self->getOffObj.english_name.length>0)
+                {
+                    self->_getOffLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOffObj.english_name,self->getOffObj.muUserAddress];
+                }
+                
+            }
+        }
+        if(self->getOffObj.surcharge.intValue>0)
+        {
+            NSString *strtemp = self->_getOffLabel.text;
+            NSString *strtempwrite = [NSString stringWithFormat:@"%@-%@",strtemp,self->getOffObj.additional_fee_type_txt_c];
+            if([NSBundle getLanguagekey] == LanguageVI)
+            {
+                strtempwrite = [NSString stringWithFormat:@"%@-%@",strtemp,self->getOffObj.additional_fee_type_txt_v];
+            }
+            else if([NSBundle getLanguagekey] == LanguageEN)
+            {
+                strtempwrite = [NSString stringWithFormat:@"%@-%@",strtemp,self->getOffObj.additional_fee_type_txt_e];
+            }
+            self->_getOffLabel.text = strtempwrite;
+        }
+        
+        ///调整价格
+        [self upddddd];
         
         if ([self->getOffObj.unfixed_point intValue] == 1) {
             [self setIsShowGetOffInputView:YES];
@@ -444,17 +504,56 @@
         
         
         self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@",[componds firstObject], self->getOnObj.name];
-        
+        if(self->getOnObj.address.length>0)
+        {
+            self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOnObj.name,self->getOnObj.address];
+        }
         if([NSBundle getLanguagekey] == LanguageEN)
         {
             if(self->getOnObj.english_name.length>0)
             {
                 self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@",[componds firstObject], self->getOnObj.english_name];
+                if(self->getOnObj.address_name.length>0)
+                {
+                    self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOnObj.english_name,self->getOnObj.address_name];
+                }
             }
             
         }
         
+        if(self->getOnObj.muUserAddress.length>0)
+        {
+            
+            self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOnObj.name,self->getOnObj.muUserAddress];
+            
+            if([NSBundle getLanguagekey] == LanguageEN)
+            {
+                if(self->getOnObj.english_name.length>0)
+                {
+                    self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOnObj.english_name,self->getOnObj.muUserAddress];
+                }
+                
+            }
+        }
         
+        if(self->getOnObj.surcharge.intValue>0)
+        {
+            NSString *strtemp = self->_getOnLabel.text;
+            NSString *strtempwrite = [NSString stringWithFormat:@"%@-%@",strtemp,self->getOnObj.additional_fee_type_txt_c];
+            if([NSBundle getLanguagekey] == LanguageVI)
+            {
+                strtempwrite = [NSString stringWithFormat:@"%@-%@",strtemp,self->getOnObj.additional_fee_type_txt_v];
+            }
+            else if([NSBundle getLanguagekey] == LanguageEN)
+            {
+                strtempwrite = [NSString stringWithFormat:@"%@-%@",strtemp,self->getOnObj.additional_fee_type_txt_e];
+            }
+            
+            self->_getOnLabel.text = strtempwrite;
+        }
+        
+        ///调整价格
+        [self upddddd];
         
         if ([self->getOnObj.unfixed_point intValue] == 1) {
             [self setIsShowGetOnInputView:YES];
@@ -467,6 +566,7 @@
     
 }
 
+#pragma mark - 汽车运营信息
 - (IBAction)checkBusInfoBtnOnTouch:(id)sender {
     
     BusCompanyInfoVC *vc = [[BusCompanyInfoVC alloc] initWithNibName:@"BusCompanyInfoVC" bundle:nil];
@@ -476,7 +576,7 @@
     
 }
 
-
+#pragma mark - 显示和影藏上下车点备注
 - (void)setIsShowGetOnInputView:(BOOL)isShow {
     self.getOnTextField.text = nil;
     if (isShow) {

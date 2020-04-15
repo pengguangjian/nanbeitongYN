@@ -179,8 +179,8 @@
     //预计到达时间  预定时间
     NSArray *arrname = @[NSBundleLocalizedString(@"上车点"),NSBundleLocalizedString(@"下车点"),NSBundleLocalizedString(@"座位号"),NSBundleLocalizedString(@"价  格"),NSBundleLocalizedString(@"预计到达"),NSBundleLocalizedString(@"预定时间"),NSBundleLocalizedString(@"支付时间"),NSBundleLocalizedString(@"订单号"),NSBundleLocalizedString(@"订单编号"),NSBundleLocalizedString(@"订单状态")];
     
-    NSArray *arrvalue = @[tmodel.from,tmodel.to,tmodel.seat_codes,tmodel.amount_booking,tmodel.arrival_date,tmodel.created_date,tmodel.order_pay_time,tmodel.code,tmodel.order_code,tmodel.order_statusString];
-    UIView *viewlast;
+    NSArray *arrvalue = @[tmodel.pickup_info,tmodel.drop_off_info,tmodel.seat_codes,tmodel.amount_booking,tmodel.arrival_date,tmodel.created_date,tmodel.order_pay_time,tmodel.code,tmodel.order_code,tmodel.order_statusString];
+    UIView *viewlast=viewline;
     for(int i = 0 ; i < arrname.count; i++)
     {
         UIView *viewitem = [[UIView alloc] init];
@@ -188,7 +188,7 @@
         [viewitem mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.offset(0);
             make.width.equalTo(scvback);
-            make.top.equalTo(viewline.mas_bottom).offset(60*i);
+            make.top.equalTo(viewlast.mas_bottom);
             make.height.offset(60);
             
         }];
@@ -226,8 +226,85 @@
                 make.right.equalTo(viewitem).offset(-15);
             }];
         }
-        
         viewlast = viewitem;
+        if(i==0)
+        {
+            if(tmodel.pickup_surcharge.intValue>0)
+            {
+                UILabel *lb = [[UILabel alloc] init];
+                [lb setText:tmodel.pickup_points_price_txt_c];
+                if([NSBundle getLanguagekey] == LanguageVI)
+                {
+                    [lb setText:tmodel.pickup_points_price_txt_v];
+                }else if([NSBundle getLanguagekey] == LanguageEN)
+                {
+                    [lb setText:tmodel.pickup_points_price_txt_e];
+                }
+                
+                [lb setTextColor:RGB(120, 120, 120)];
+                [lb setTextAlignment:NSTextAlignmentLeft];
+                [lb setFont:[UIFont systemFontOfSize:13]];
+                [lb setNumberOfLines:0];
+                [scvback addSubview:lb];
+                [lb mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.left.offset(15);
+                    make.top.equalTo(viewitem.mas_bottom).offset(5);
+                    make.right.equalTo(viewitem).offset(-15);
+                }];
+                UIView *viewline = [[UIView alloc] init];
+                [viewline setBackgroundColor:RGB(234, 234, 234)];
+                [scvback addSubview:viewline];
+                [viewline mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.left.offset(15);
+                    make.width.equalTo(viewitem.mas_width).offset(-30);
+                    make.top.equalTo(lb.mas_bottom);
+                    make.height.offset(1);
+                    
+                }];
+                viewlast = viewline;
+            }
+            
+        }
+        else if (i==1)
+        {
+            if(tmodel.drop_off_surcharge.intValue>0)
+            {
+                UILabel *lb = [[UILabel alloc] init];
+                [lb setText:tmodel.drop_off_points_price_txt_c];
+                if([NSBundle getLanguagekey] == LanguageVI)
+                {
+                    [lb setText:tmodel.drop_off_points_price_txt_v];
+                }else if([NSBundle getLanguagekey] == LanguageEN)
+                {
+                    [lb setText:tmodel.drop_off_points_price_txt_e];
+                }
+                
+                [lb setTextColor:RGB(120, 120, 120)];
+                [lb setTextAlignment:NSTextAlignmentLeft];
+                [lb setFont:[UIFont systemFontOfSize:13]];
+                [lb setNumberOfLines:0];
+                [scvback addSubview:lb];
+                [lb mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.left.offset(15);
+                    make.top.equalTo(viewitem.mas_bottom).offset(5);
+                    make.right.equalTo(viewitem).offset(-15);
+                }];
+                UIView *viewline = [[UIView alloc] init];
+                [viewline setBackgroundColor:RGB(234, 234, 234)];
+                [scvback addSubview:viewline];
+                [viewline mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.left.offset(15);
+                    make.width.equalTo(viewitem.mas_width).offset(-30);
+                    make.top.equalTo(lb.mas_bottom);
+                    make.height.offset(1);
+                    
+                }];
+                viewlast = viewline;
+            }
+            
+        }
+        
+        
     }
     
     UIView *viewlianxiren = [[UIView alloc] init];

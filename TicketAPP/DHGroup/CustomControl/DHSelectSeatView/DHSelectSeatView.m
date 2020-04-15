@@ -29,26 +29,29 @@
     NSString *tripId;
     
     NSMutableArray *selectArr;
-    
 }
 @property (nonatomic, strong) NSMutableArray *subTimeDataSource;
 @property (nonatomic, strong) UICollectionView *subTimeCollectionView;
-
+///默认选择
+@property (nonatomic, strong) NSMutableArray *arrsuper;
 @end
 
 @implementation DHSelectSeatView
 
-+ (instancetype)sharedView:(NSString*)tripID {
++ (instancetype)sharedView:(NSString*)tripID andNoMoSelect:(NSArray *)arr {
     
     static dispatch_once_t once;
     static DHSelectSeatView *selectSeatView;
+    
     dispatch_once(&once, ^ {
         selectSeatView = [[self alloc] initWithFrame:CGRectMake(0, 0, DEVICE_Width, DEVICE_Height)];
         
         [selectSeatView setBackgroundColor:RGBA(0, 0, 0, 0.5)];
         
     });
+    selectSeatView.arrsuper = [NSMutableArray new];
     
+    [selectSeatView.arrsuper arrayByAddingObjectsFromArray:arr] ;
     [selectSeatView removeAllView];
     [selectSeatView initView : tripID];
     
@@ -165,10 +168,11 @@
     return _subTimeCollectionView;
 }
 
-
+#pragma mark - 确定
 - (void)ensureBtnOnTouch:(id)sender
 {
     selectArr = [[NSMutableArray alloc] init];
+    
     for (NSArray *arr in self.subTimeDataSource) {
         for (SeatObj *so in arr) {
             if ([so.status intValue] == 5) {
@@ -256,12 +260,21 @@
    
     NSArray *arr = [self.subTimeDataSource objectAtIndex:indexPath.section];
     SeatObj *so = [arr objectAtIndex:indexPath.row];
-    
+    for(SeatObj *model in self.arrsuper)
+    {
+        if([model.seat_code isEqualToString:so.seat_code])
+        {
+            so.status = [NSNumber numberWithInt:5];
+            [self.arrsuper removeObject:model];
+            break;
+        }
+    }
     
     [cell setSeatObj:so];
     
     cell.timeBtn.tag = indexPath.section*100 + indexPath.row;
     [cell.timeBtn addTarget:self action:@selector(timeBtnOnTouch:) forControlEvents:UIControlEventTouchUpInside];
+    
     
 //    NSString *dateStr = [NSString stringWithFormat:@"%@ %@:00",dateObj.workDate,wto.workTime];
 //
@@ -286,7 +299,7 @@
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return CGSizeMake((DEVICE_Width - 16*4) / 4.0,
-                      (DEVICE_Width - 16*4) / 4.0*(9.0/16.0));
+                      50);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

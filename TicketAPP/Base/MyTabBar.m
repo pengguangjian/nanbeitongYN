@@ -124,10 +124,12 @@
     
     // 1.取消上一次选中的按钮
     self.selectedButton.selected = NO;
+//    [self.selectedButton setTitleColor:UIColorFromHex(0x6d6d6d) forState:UIControlStateNormal];
     // 2.选中当前按钮
     btn.selected = YES;
     // 3.记录当前选中的按钮
     self.selectedButton = btn;
+    [self.selectedButton setTitleColor:UIColorFromHex(0x56b157) forState:UIControlStateSelected];
 }
 
 #pragma mark - 懒加载
