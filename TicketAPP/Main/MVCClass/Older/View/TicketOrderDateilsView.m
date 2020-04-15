@@ -71,6 +71,34 @@
     if(model==nil)return;
     TickerOrderDateilsModel *tmodel = model;
     
+    
+    UILabel *lbfirsttemp ;
+    if(tmodel.order_status.intValue == 1)
+    {
+        UILabel *lbpeytishi = [[UILabel alloc] init];
+        lbpeytishi.text = [NSString stringWithFormat:@"请在%@之前完成付款，否则订单将取消",tmodel.failure_description_date];
+        if([NSBundle getLanguagekey] == LanguageVI)
+        {
+            lbpeytishi.text = [NSString stringWithFormat:@"Vui lòng hoàn tất thanh toán trước %@, nếu không đơn hàng sẽ bị hủy",tmodel.failure_description_date];
+        }
+        else if([NSBundle getLanguagekey] == LanguageEN)
+        {
+            lbpeytishi.text = [NSString stringWithFormat:@"Please complete the payment before %@, otherwise the order will be cancelled",tmodel.failure_description_date];
+        }
+        [lbpeytishi setTextColor:RGB(120, 120, 120)];
+        [lbpeytishi setTextAlignment:NSTextAlignmentLeft];
+        [lbpeytishi setFont:[UIFont systemFontOfSize:12]];
+        [lbpeytishi setNumberOfLines:0];
+        [scvback addSubview:lbpeytishi];
+        [lbpeytishi mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset(15);
+            make.width.equalTo(scvback.mas_width).offset(-30);
+            make.top.offset(15);
+        }];
+        lbfirsttemp = lbpeytishi;
+        
+    }
+    
     UILabel *lbqidian = [[UILabel alloc] init];
     [lbqidian setText:NSBundleLocalizedString(@"起点")];
     [lbqidian setTextColor:RGB(120, 120, 120)];
@@ -79,8 +107,15 @@
     [scvback addSubview:lbqidian];
     [lbqidian mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(15);
-        make.top.offset(25);
         make.height.offset(20);
+        if(tmodel.order_status.intValue == 1)
+        {
+            make.top.equalTo(lbfirsttemp.mas_bottom).offset(15);
+        }
+        else
+        {
+            make.top.offset(25);
+        }
     }];
     UIView *viewqd = [[UIView alloc] init];
     [viewqd setBackgroundColor:UIColorFromHex(0x56b157)];
@@ -123,6 +158,7 @@
     [lbzongdian mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(lbqidian);
         make.top.equalTo(viewzd.mas_bottom);
+        make.centerX.equalTo(viewzd);
         make.height.offset(20);
     }];
     
@@ -131,11 +167,13 @@
     [lbqdValue setTextColor:RGB(50, 50, 50)];
     [lbqdValue setTextAlignment:NSTextAlignmentLeft];
     [lbqdValue setFont:[UIFont systemFontOfSize:16]];
+    [lbqdValue setNumberOfLines:2];
     [scvback addSubview:lbqdValue];
     [lbqdValue mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@100);
         make.centerY.equalTo(lbqidian.mas_bottom);
-        make.height.offset(20);
+        make.width.equalTo(@190);
+//        make.height.offset(20);
     }];
     
     
@@ -144,11 +182,13 @@
     [lbzdValue setTextColor:RGB(50, 50, 50)];
     [lbzdValue setTextAlignment:NSTextAlignmentLeft];
     [lbzdValue setFont:[UIFont systemFontOfSize:16]];
+    [lbzdValue setNumberOfLines:2];
     [scvback addSubview:lbzdValue];
     [lbzdValue mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(lbqdValue);
         make.centerY.equalTo(lbzongdian.mas_top);
-        make.height.offset(20);
+        make.width.equalTo(@190);
+//        make.height.offset(20);
     }];
     
     ////[NSDate timestampToTimeStr:[model.ob_setout_time floatValue]]

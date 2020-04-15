@@ -13,21 +13,21 @@ NSString *const MJRefreshKeyPathContentInset = @"contentInset";
 NSString *const MJRefreshKeyPathContentSize = @"contentSize";
 NSString *const MJRefreshKeyPathPanState = @"state";
 
-NSString *const MJRefreshHeaderLastUpdatedTimeKey = @"MJRefreshHeaderLastUpdatedTimeKey";
+NSString *const MJRefreshHeaderLastUpdatedTimeKey = @"LastUpdatedTimeKey";
 
-NSString *const MJRefreshHeaderIdleText = @"MJRefreshHeaderIdleText";
-NSString *const MJRefreshHeaderPullingText = @"MJRefreshHeaderPullingText";
-NSString *const MJRefreshHeaderRefreshingText = @"MJRefreshHeaderRefreshingText";
+NSString *const MJRefreshHeaderIdleText = @"IdleText";
+NSString *const MJRefreshHeaderPullingText = @"PullingText";
+NSString *const MJRefreshHeaderRefreshingText = @"RefreshingText";
 
-NSString *const MJRefreshAutoFooterIdleText = @"MJRefreshAutoFooterIdleText";
-NSString *const MJRefreshAutoFooterRefreshingText = @"MJRefreshAutoFooterRefreshingText";
-NSString *const MJRefreshAutoFooterNoMoreDataText = @"MJRefreshAutoFooterNoMoreDataText";
+NSString *const MJRefreshAutoFooterIdleText = @"IdleText";
+NSString *const MJRefreshAutoFooterRefreshingText = @"RefreshingText";
+NSString *const MJRefreshAutoFooterNoMoreDataText = @"NoMoreDataText";
 
-NSString *const MJRefreshBackFooterIdleText = @"MJRefreshBackFooterIdleText";
-NSString *const MJRefreshBackFooterPullingText = @"MJRefreshBackFooterPullingText";
-NSString *const MJRefreshBackFooterRefreshingText = @"MJRefreshBackFooterRefreshingText";
-NSString *const MJRefreshBackFooterNoMoreDataText = @"MJRefreshBackFooterNoMoreDataText";
+NSString *const MJRefreshBackFooterIdleText = @"IdleText";
+NSString *const MJRefreshBackFooterPullingText = @"PullingText";
+NSString *const MJRefreshBackFooterRefreshingText = @"RefreshingText";
+NSString *const MJRefreshBackFooterNoMoreDataText = @"NoMoreDataText";
 
-NSString *const MJRefreshHeaderLastTimeText = @"MJRefreshHeaderLastTimeText";
-NSString *const MJRefreshHeaderDateTodayText = @"MJRefreshHeaderDateTodayText";
-NSString *const MJRefreshHeaderNoneLastDateText = @"MJRefreshHeaderNoneLastDateText";
+NSString *const MJRefreshHeaderLastTimeText = @"LastTimeText";
+NSString *const MJRefreshHeaderDateTodayText = @"DateTodayText";
+NSString *const MJRefreshHeaderNoneLastDateText = @"NoneLastDateText";

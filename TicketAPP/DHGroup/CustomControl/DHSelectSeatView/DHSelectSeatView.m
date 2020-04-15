@@ -49,9 +49,9 @@
         [selectSeatView setBackgroundColor:RGBA(0, 0, 0, 0.5)];
         
     });
-    selectSeatView.arrsuper = [NSMutableArray new];
+    selectSeatView.arrsuper = [[NSMutableArray alloc] init];
     
-    [selectSeatView.arrsuper arrayByAddingObjectsFromArray:arr] ;
+    [selectSeatView.arrsuper addObjectsFromArray:arr] ;
     [selectSeatView removeAllView];
     [selectSeatView initView : tripID];
     
@@ -265,8 +265,6 @@
         if([model.seat_code isEqualToString:so.seat_code])
         {
             so.status = [NSNumber numberWithInt:5];
-            [self.arrsuper removeObject:model];
-            break;
         }
     }
     
@@ -361,6 +359,14 @@
         so.status = [NSNumber numberWithInt:5];
     } else {
         so.status = [NSNumber numberWithInt:1];
+        for(SeatObj *model in self.arrsuper)
+        {
+            if([model.seat_code isEqualToString:so.seat_code])
+            {
+                [self.arrsuper removeObject:model];
+                break;
+            }
+        }
     }
     
     [arr replaceObjectAtIndex:btn.tag%100 withObject:so];

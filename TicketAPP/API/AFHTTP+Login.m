@@ -549,7 +549,25 @@
     }];
 }
 
++ (void)requestUserinfosuccess:(HttpRequestSuccess)success
+{
+    
+    NSDictionary *param = [self paramStringWithData:@{}];
+//    [MBManager showLoading];
+    [AFHTTP POST:@"api/user/userinfo" parameters:param success:^(id responseObject){
 
+//        [MBManager hideAlert];
+        
+        UserModel *model = [UserModel mj_objectWithKeyValues:responseObject[@"userinfo"]];
+        [[UserInfo sharedInstance] updateLoginUserInfo:model];
+        
+        
+        
+    } failure:^(NSError *error){
+//        [MBManager hideAlert];
+        [MBManager showBriefAlert:error.localizedDescription];
+    }];
+}
 
 
 @end

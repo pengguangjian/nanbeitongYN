@@ -39,6 +39,11 @@ NS_ASSUME_NONNULL_BEGIN
                      verify_code:(NSString *)verify_code
                          success:(HttpRequestSuccess)success;
 
+
+//+ (void)requestUserinfo:(NSString *)phone
+//verify_code:(NSString *)verify_code
+//    success:(HttpRequestSuccess)success;
+
 @end
 
 NS_ASSUME_NONNULL_END

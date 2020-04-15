@@ -84,7 +84,6 @@
 		204272A42370392F008A438C /* TicketListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 204272A22370392F008A438C /* TicketListCell.xib */; };
 		204272A8237046CC008A438C /* TYStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 204272A7237046CC008A438C /* TYStarRateView.m */; };
 		20450CB9238B6856007791C1 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20450CB8238B6856007791C1 /* Bugly.framework */; };
-		2049D1E9236C03480060A2FA /* LogisticsOrderRefundVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2049D1E6236C03480060A2FA /* LogisticsOrderRefundVC.xib */; };
 		2049D1EA236C03480060A2FA /* LogisticsOrderRefundVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2049D1E8236C03480060A2FA /* LogisticsOrderRefundVC.m */; };
 		204AA6FA2356FB07002F332D /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 204AA6F92356FB07002F332D /* libAFNetworking.a */; };
 		204AA6FC2356FB2B002F332D /* libDZNEmptyDataSet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 204AA6FB2356FB2B002F332D /* libDZNEmptyDataSet.a */; };
@@ -241,7 +240,6 @@
 		B985810E2301159C008FF7F9 /* BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B985810C2301159C008FF7F9 /* BusinessCell.m */; };
 		B985810F2301159C008FF7F9 /* BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B985810D2301159C008FF7F9 /* BusinessCell.xib */; };
 		B985811223012B7A008FF7F9 /* UIButton+HQCustomIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = B985811123012B7A008FF7F9 /* UIButton+HQCustomIcon.m */; };
-		B9858113230134EA008FF7F9 /* TicketConfirmCV.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9858115230134EA008FF7F9 /* TicketConfirmCV.xib */; };
 		B985811E23013A7C008FF7F9 /* NSDate+commonuse.m in Sources */ = {isa = PBXBuildFile; fileRef = B985811D23013A7C008FF7F9 /* NSDate+commonuse.m */; };
 		B985811F23014556008FF7F9 /* OlderDateilsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B985812123014556008FF7F9 /* OlderDateilsVC.xib */; };
 		B985812B23016A12008FF7F9 /* CellHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B985812D23016A12008FF7F9 /* CellHomeTopView.xib */; };
@@ -490,7 +488,6 @@
 		204272A6237046CC008A438C /* TYStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYStarRateView.h; sourceTree = "<group>"; };
 		204272A7237046CC008A438C /* TYStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYStarRateView.m; sourceTree = "<group>"; };
 		20450CB8238B6856007791C1 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
-		2049D1E6236C03480060A2FA /* LogisticsOrderRefundVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogisticsOrderRefundVC.xib; sourceTree = "<group>"; };
 		2049D1E7236C03480060A2FA /* LogisticsOrderRefundVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogisticsOrderRefundVC.h; sourceTree = "<group>"; };
 		2049D1E8236C03480060A2FA /* LogisticsOrderRefundVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogisticsOrderRefundVC.m; sourceTree = "<group>"; };
 		204AA6F92356FB07002F332D /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -784,10 +781,6 @@
 		B985810D2301159C008FF7F9 /* BusinessCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessCell.xib; sourceTree = "<group>"; };
 		B985811023012B7A008FF7F9 /* UIButton+HQCustomIcon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+HQCustomIcon.h"; sourceTree = "<group>"; };
 		B985811123012B7A008FF7F9 /* UIButton+HQCustomIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HQCustomIcon.m"; sourceTree = "<group>"; };
-		B9858114230134EA008FF7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TicketConfirmCV.xib; sourceTree = "<group>"; };
-		B9858117230134EC008FF7F9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TicketConfirmCV.strings"; sourceTree = "<group>"; };
-		B9858119230134EE008FF7F9 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/TicketConfirmCV.strings; sourceTree = "<group>"; };
-		B985811B230134EF008FF7F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TicketConfirmCV.strings; sourceTree = "<group>"; };
 		B985811C23013A7C008FF7F9 /* NSDate+commonuse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+commonuse.h"; sourceTree = "<group>"; };
 		B985811D23013A7C008FF7F9 /* NSDate+commonuse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+commonuse.m"; sourceTree = "<group>"; };
 		B985812023014556008FF7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OlderDateilsVC.xib; sourceTree = "<group>"; };
@@ -2092,12 +2085,10 @@
 				043C9C5C243EC25000BC1B84 /* TicketOrderDateilsVC.m */,
 				B915364C22F28C35007C5FEF /* TicketConfirmCV.h */,
 				B915364D22F28C35007C5FEF /* TicketConfirmCV.m */,
-				B9858115230134EA008FF7F9 /* TicketConfirmCV.xib */,
 				B98BF38D22DCBC21008AB714 /* LogisticsOrderVC.h */,
 				B98BF38E22DCBC21008AB714 /* LogisticsOrderVC.m */,
 				2049D1E7236C03480060A2FA /* LogisticsOrderRefundVC.h */,
 				2049D1E8236C03480060A2FA /* LogisticsOrderRefundVC.m */,
-				2049D1E6236C03480060A2FA /* LogisticsOrderRefundVC.xib */,
 				B915365122F291D7007C5FEF /* OlderDateilsVC.h */,
 				B915365222F291D7007C5FEF /* OlderDateilsVC.m */,
 				B985812123014556008FF7F9 /* OlderDateilsVC.xib */,
@@ -2546,7 +2537,6 @@
 				04512EC22435EE870077B682 /* AlipaySDK.bundle in Resources */,
 				20CF3C242356BC4500FB78D0 /* checked@3x.png in Resources */,
 				204F511123710074007D4B95 /* GetOnOffListVC.xib in Resources */,
-				2049D1E9236C03480060A2FA /* LogisticsOrderRefundVC.xib in Resources */,
 				204F518323712696007D4B95 /* ServiceEvaluateCell.xib in Resources */,
 				2080EEFB23B9E780003783B5 /* JKImagePickerController.strings in Resources */,
 				20407D952355B3A7001F0898 /* WeiboSDK.bundle in Resources */,
@@ -2563,7 +2553,6 @@
 				FABC138622EDC7BB00C06947 /* SelectPayTypeVC.xib in Resources */,
 				20CF3C232356BC4500FB78D0 /* unchecked@3x.png in Resources */,
 				B985811F23014556008FF7F9 /* OlderDateilsVC.xib in Resources */,
-				B9858113230134EA008FF7F9 /* TicketConfirmCV.xib in Resources */,
 				204F513023710DE6007D4B95 /* StorePhotoCell.xib in Resources */,
 				2080EEFD23B9E780003783B5 /* SelectPhotoVC.xib in Resources */,
 				B97607B9230020FE0020433C /* ForgetPasVC.xib in Resources */,
@@ -3041,17 +3030,6 @@
 				B980ED1F231A8AD600A02CC3 /* en */,
 			);
 			name = BindingLoginVC.xib;
-			sourceTree = "<group>";
-		};
-		B9858115230134EA008FF7F9 /* TicketConfirmCV.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B9858114230134EA008FF7F9 /* Base */,
-				B9858117230134EC008FF7F9 /* zh-Hans */,
-				B9858119230134EE008FF7F9 /* vi */,
-				B985811B230134EF008FF7F9 /* en */,
-			);
-			name = TicketConfirmCV.xib;
 			sourceTree = "<group>";
 		};
 		B985812123014556008FF7F9 /* OlderDateilsVC.xib */ = {

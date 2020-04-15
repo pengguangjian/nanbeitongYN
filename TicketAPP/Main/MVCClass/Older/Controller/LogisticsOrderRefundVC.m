@@ -12,17 +12,13 @@
 
 @interface LogisticsOrderRefundVC ()
 //车票金额
-@property (weak, nonatomic) IBOutlet UILabel *mouniLabel;
-@property (weak, nonatomic) IBOutlet UILabel *pipomUber;
+@property (strong, nonatomic)  UILabel *mouniLabel;
 //预计手续费
-@property (weak, nonatomic) IBOutlet UILabel *sxflabel;
+@property (strong, nonatomic)  UILabel *sxflabel;
 //预计退款金额
-@property (weak, nonatomic) IBOutlet UILabel *yujituikuanlabel;
+@property (strong, nonatomic)  UILabel *yujituikuanlabel;
 //说明
-@property (weak, nonatomic) IBOutlet UILabel *shouminglabel;
-
-@property (weak, nonatomic) IBOutlet UIButton *quexiaoButton;
-@property (weak, nonatomic) IBOutlet UIButton *querenButton;
+@property (strong, nonatomic)  UILabel *shouminglabel;
 
 @end
 
@@ -33,21 +29,164 @@
     
     self.navigationItem.title = NSBundleLocalizedString(@"退款");
     self.view.backgroundColor = UIColorFromHex(0xf6f6f6);
+    [self drawUI];
     
     self.mouniLabel.text = @"";
-    self.pipomUber.text = @"";
     self.sxflabel.text = @"";
     self.yujituikuanlabel.text = @"";
     
     
     
-    self.quexiaoButton.backgroundColor = [UIColor whiteColor];
-    ViewRadius(self.querenButton, 3.0);
-    ViewBorderRadius(self.quexiaoButton, 3.0, 1, [UIColor groupTableViewBackgroundColor]);
     [self requestReplyrefund];
     
     [self getRequestDesc];
 }
+
+
+-(void)drawUI
+{
+    UIScrollView *scvback = [[UIScrollView alloc] init];
+    [scvback setBackgroundColor:RGB(244, 244, 244)];
+    [self.view addSubview:scvback];
+    [scvback mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(SYS_TopHeight);
+        make.left.right.equalTo(self.view);
+        make.height.offset(DEVICE_Height-SYS_TopHeight);
+    }];
+    
+    
+    UIView *viewback = [[UIView alloc] init];
+    [viewback setBackgroundColor:[UIColor whiteColor]];
+    [scvback addSubview:viewback];
+    [viewback mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.offset(0);
+        make.width.offset(DEVICE_Width);
+    }];
+    UIView *viewlast;
+    NSArray *arrname = @[LS(@"定金"),LS(@"预计手续费"),LS(@"预计退款金额")];
+    for(int i = 0 ; i < arrname.count; i++)
+    {
+        UIView *viewitem = [[UIView alloc] init];
+        [scvback addSubview:viewitem];
+        [viewitem mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(viewback);
+            make.top.offset(50*i);
+            make.height.offset(50);
+        }];
+        UILabel *lbtemp = [self drawitem:arrname[i] andview:viewitem];
+        if(i==0)
+        {
+            self.mouniLabel = lbtemp;
+            [lbtemp setTextColor:RGB(235, 90, 78)];
+        }
+        else if (i==1)
+        {
+            self.sxflabel = lbtemp;
+            [lbtemp setTextColor:RGB(150, 150, 150)];
+        }
+        else if (i==2)
+        {
+            self.yujituikuanlabel = lbtemp;
+            [lbtemp setTextColor:RGB(235, 90, 78)];
+        }
+        viewlast = viewitem;
+    }
+    
+    
+    ////shouminglabel
+    UILabel *lbsm = [[UILabel alloc] init];
+    [lbsm setTextColor:RGB(130, 130, 130)];
+    [lbsm setTextAlignment:NSTextAlignmentLeft];
+    [lbsm setNumberOfLines:0];
+    [lbsm setFont:[UIFont systemFontOfSize:14]];
+    [viewback addSubview:lbsm];
+    [lbsm mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(10);
+        make.right.equalTo(viewback).offset(-10);
+        make.top.equalTo(viewlast.mas_bottom).offset(10);
+    }];
+    self.shouminglabel = lbsm;
+    
+    [viewback mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(lbsm.mas_bottom).offset(10);
+    }];
+    
+    
+    UIButton *btquxiao = [[UIButton alloc] init];
+    [btquxiao setTitle:LS(@"取消") forState:UIControlStateNormal];
+    [btquxiao setTitleColor:RGB(100, 100, 100) forState:UIControlStateNormal];
+    [btquxiao.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [btquxiao setBackgroundColor:[UIColor whiteColor]];
+    [btquxiao.layer setMasksToBounds:YES];
+    [btquxiao.layer setCornerRadius:3];
+    [btquxiao addTarget:self action:@selector(quxiaoClick:) forControlEvents:UIControlEventTouchUpInside];
+    [scvback addSubview:btquxiao];
+    [btquxiao mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.sizeOffset(CGSizeMake(120, 40));
+        make.top.equalTo(lbsm.mas_bottom).offset(30);
+        make.left.equalTo(@35);
+    }];
+    
+    
+    UIButton *btqueding = [[UIButton alloc] init];
+    [btqueding setTitle:LS(@"确认退款") forState:UIControlStateNormal];
+    [btqueding setTitleColor:RGB(255, 255, 255) forState:UIControlStateNormal];
+    [btqueding.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [btqueding setBackgroundColor:DEFAULTCOLOR1];
+    [btqueding.layer setMasksToBounds:YES];
+    [btqueding.layer setCornerRadius:3];
+    [btqueding addTarget:self action:@selector(querenClick:) forControlEvents:UIControlEventTouchUpInside];
+    [scvback addSubview:btqueding];
+    [btqueding mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.sizeOffset(CGSizeMake(120, 40));
+        make.top.equalTo(btquxiao);
+        make.right.equalTo(viewback).equalTo(@-35);
+    }];
+    
+    [scvback mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(btquxiao.mas_bottom).offset(30);
+    }];
+    
+    
+}
+
+-(UILabel *)drawitem:(NSString *)name andview:(UIView *)view
+{
+    
+    UILabel *lbname = [[UILabel alloc] init];
+    [lbname setText:name];
+    [lbname setTextColor:RGB(30, 30, 30)];
+    [lbname setTextAlignment:NSTextAlignmentLeft];
+    [lbname setFont:[UIFont systemFontOfSize:14]];
+    [view addSubview:lbname];
+    [lbname mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(10);
+        make.top.bottom.equalTo(view);
+    }];
+    
+    
+    UILabel *lbvalue = [[UILabel alloc] init];
+    [lbvalue setTextColor:RGB(30, 30, 30)];
+    [lbvalue setTextAlignment:NSTextAlignmentRight];
+    [lbvalue setFont:[UIFont systemFontOfSize:14]];
+    [view addSubview:lbvalue];
+    [lbvalue mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(view).offset(-10);
+        make.top.bottom.equalTo(view);
+    }];
+    
+    UIView *viewline = [[UIView alloc] init];
+    [viewline setBackgroundColor:RGB(245, 245, 245)];
+    [view addSubview:viewline];
+    [viewline mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(view);
+        make.height.offset(1);
+    }];
+    
+    return lbvalue;
+}
+
+
 
 
 - (void)getRequestDesc{

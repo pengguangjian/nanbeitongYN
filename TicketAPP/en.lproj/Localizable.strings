@@ -23,6 +23,10 @@
 "请输入其他下车点1" = "Please enter another drop-off point (English or Pinyin)";
 "电话" = "Phone";
 
+"预计手续费" = "Estimated handling fee";
+"预计退款金额" = "Estimated refund amount";
+"车票金额" = "Ticket amount";
+
 "成功保存到相册" = "Successfully saved to album";
 "保存失败" = "Save failed";
 
@@ -235,6 +239,7 @@
 "没有上下车点信息，默认为起始或终点站" = "No pick-up point information, default is start or end stationn";
 "没有路线信息，请选择其他路线" = "No route information, please select another route";
 "警告" = "Warning";
+
 
 
 

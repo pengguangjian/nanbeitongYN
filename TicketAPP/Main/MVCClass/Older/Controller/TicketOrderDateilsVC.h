@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , retain) NSString *order_id;
 ///出发时间
 @property (nonatomic , retain) NSNumber *ob_setout_time;
-
+///未支付有这个最后支付时间
+@property (nonatomic , retain) NSString *failure_description_date;
 @end
 
 NS_ASSUME_NONNULL_END

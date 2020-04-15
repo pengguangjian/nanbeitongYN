@@ -149,6 +149,8 @@ NS_ASSUME_NONNULL_BEGIN
                   password:(NSString *)password
                    andCode:(NSString *)Codel;
 
++ (void)requestUserinfosuccess:(HttpRequestSuccess)success;
+
 + (void)requestUserinfo;
 
 @end

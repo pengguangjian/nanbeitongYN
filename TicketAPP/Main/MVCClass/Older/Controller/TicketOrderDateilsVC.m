@@ -75,6 +75,7 @@
         model.ob_id = self->_order_id;
         model.ob_setout_time = self->_ob_setout_time;
         model.did = self->_order_id;
+        model.failure_description_date = self.failure_description_date;
         self->dateilsModel = model;
         [self->songView drawValue:model];
     } failure:^(NSError *error) {

@@ -100,6 +100,15 @@
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     return 114;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    LogisticsOrderModel *model = [LogisticsOrderModel mj_objectWithKeyValues:self.dataArray[indexPath.row]];
+    [self goOlderDateilsVC:model];
+}
+
+
 - (void)goOlderDateilsVC:(LogisticsOrderModel *)model{
 
     OlderDateilsVC *vc = [[OlderDateilsVC alloc]init];

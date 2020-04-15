@@ -35,7 +35,12 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self upViewData];
+    [AFHTTP requestUserinfosuccess:^(id responseObject) {
+        [self upViewData];
+    }];
 }
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.delegate = self;
@@ -50,6 +55,9 @@
     
     [self upViewData];
 }
+
+
+
 
 - (void)upViewData {
     

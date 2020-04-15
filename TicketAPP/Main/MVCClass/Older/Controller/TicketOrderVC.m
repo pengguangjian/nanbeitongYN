@@ -180,6 +180,7 @@
     TicketOrderDateilsVC *vc = [[TicketOrderDateilsVC alloc]init];
     vc.order_id = [NSString stringWithFormat:@"%@",model.ob_id];
     vc.ob_setout_time = model.ob_setout_time;
+    vc.failure_description_date = model.failure_description_date; 
     [self.navigationController pushViewController:vc animated:YES];
     
 }
