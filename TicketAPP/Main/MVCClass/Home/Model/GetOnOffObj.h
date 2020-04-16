@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *unfixed_point;
 @property (nonatomic, copy) NSString *english_name;
 
+///附加费描述
 @property (nonatomic, copy) NSString *additional_fee_type_txt_c;
 @property (nonatomic, copy) NSString *additional_fee_type_txt_v;
 @property (nonatomic, copy) NSString *additional_fee_type_txt_e;
@@ -30,6 +31,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *surcharge_type;
 ///前端需要提示，线上收取附加费，加在票价里面
 @property (nonatomic, copy) NSString *surcharge;
+///最少接送人数
+@property (nonatomic, copy) NSString *min_customer;
+
+
+///cell的otherlb的值
+@property (nonatomic, copy) NSString *strcellOtherValue;
+
 @end
 
 NS_ASSUME_NONNULL_END

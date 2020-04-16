@@ -139,7 +139,7 @@
     cell.beizhuLabel.text = @"";
     if(gooo.surcharge.intValue >0)
     {
-        cell.beizhuLabel.text = [NSString stringWithFormat:@"%@", gooo.additional_fee_type_txt_c];
+        
         if([NSBundle getLanguagekey] == LanguageVI)
         {
             cell.beizhuLabel.text = [NSString stringWithFormat:@"%@", gooo.additional_fee_type_txt_v];
@@ -148,12 +148,49 @@
         {
             cell.beizhuLabel.text = [NSString stringWithFormat:@"%@", gooo.additional_fee_type_txt_e];
         }
+        else
+        {
+            cell.beizhuLabel.text = [NSString stringWithFormat:@"%@", gooo.additional_fee_type_txt_c];
+        }
     }
-    
-    
-    
-    
-    
+    NSString *strtemp = cell.beizhuLabel.text;
+    if(![gooo.min_customer isEqualToString:@"0"] && [NSString nullToString:gooo.min_customer].length>0)
+    {
+        if(strtemp.length>0)
+        {
+            
+            if([NSBundle getLanguagekey] == LanguageVI)
+            {
+                strtemp = [NSString stringWithFormat:@"%@\nChỉ đón từ %@ khách trở lên",strtemp,gooo.min_customer];
+            }
+            else if([NSBundle getLanguagekey] == LanguageEN)
+            {
+                strtemp = [NSString stringWithFormat:@"%@\nPick up from more than %@ guests",strtemp,gooo.min_customer];
+            }
+            else
+            {
+                strtemp = [NSString stringWithFormat:@"%@\n%@名开始接送",strtemp,gooo.min_customer];
+            }
+        }
+        else
+        {
+            
+            if([NSBundle getLanguagekey] == LanguageVI)
+            {
+                strtemp = [NSString stringWithFormat:@"Chỉ đón từ %@ khách trở lên",gooo.min_customer];
+            }
+            else if([NSBundle getLanguagekey] == LanguageEN)
+            {
+                strtemp = [NSString stringWithFormat:@"Pick up from more than %@ guests",gooo.min_customer];
+            }
+            else
+            {
+                strtemp = [NSString stringWithFormat:@"%@名开始接送",gooo.min_customer];
+            }
+        }
+        cell.beizhuLabel.text = strtemp;
+    }
+    gooo.strcellOtherValue = cell.beizhuLabel.text;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
@@ -211,7 +248,16 @@
 {
     
     GetOnOffObj *gooo = [dataArr objectAtIndex:indexPath.row];
-    if(gooo.surcharge.intValue>0)
+    
+    if(gooo.strcellOtherValue.length>0)
+    {
+        float ftemp = [Util countTextSize:CGSizeMake(DEVICE_Width-30, 50) andtextfont:[UIFont systemFontOfSize:14] andtext:gooo.strcellOtherValue].height;
+        
+        
+        return 70+ftemp;
+    }
+    
+    if(gooo.surcharge.intValue>0||([NSString nullToString:gooo.min_customer].length>0 && ![gooo.min_customer isEqualToString:@"0"]))
     {
         return 90;
     }
@@ -219,8 +265,6 @@
     {
         return 60;
     }
-//    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-//    return cell.frame.size.height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

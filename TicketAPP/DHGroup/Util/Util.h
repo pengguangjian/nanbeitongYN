@@ -93,4 +93,7 @@
 
 + (NSString *)formatFloat:(float)f;
 
+//lb计算文本的宽和高
++(CGSize)countTextSize:(CGSize)size andtextfont:(UIFont *)font andtext:(NSString *)str;
+
 @end

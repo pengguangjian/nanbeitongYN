@@ -479,6 +479,45 @@
             self->_getOffLabel.text = strtempwrite;
         }
         
+        NSString *strtemp = self->_getOffLabel.text;
+        if([NSString nullToString:self->getOffObj.min_customer].length>0 && ![self->getOffObj.min_customer isEqualToString:@"0"])
+        {
+            if(strtemp.length>0)
+            {
+                
+                if([NSBundle getLanguagekey] == LanguageVI)
+                {
+                    strtemp = [NSString stringWithFormat:@"%@\nChỉ đón từ %@ khách trở lên",strtemp,self->getOffObj.min_customer];
+                }
+                else if([NSBundle getLanguagekey] == LanguageEN)
+                {
+                    strtemp = [NSString stringWithFormat:@"%@\nPick up from more than %@ guests",strtemp,self->getOffObj.min_customer];
+                }
+                else
+                {
+                    strtemp = [NSString stringWithFormat:@"%@\n%@名顾客以上才接送",strtemp,self->getOffObj.min_customer];
+                }
+            }
+            else
+            {
+                
+                if([NSBundle getLanguagekey] == LanguageVI)
+                {
+                    strtemp = [NSString stringWithFormat:@"Chỉ đón từ %@ khách trở lên",self->getOffObj.min_customer];
+                }
+                else if([NSBundle getLanguagekey] == LanguageEN)
+                {
+                    strtemp = [NSString stringWithFormat:@"Pick up from more than %@ guests",self->getOffObj.min_customer];
+                }
+                else
+                {
+                    strtemp = [NSString stringWithFormat:@"%@名顾客以上才接送",self->getOffObj.min_customer];
+                }
+            }
+            
+            self->_getOffLabel.text =  strtemp;
+        }
+        
         ///调整价格
         [self upddddd];
         
@@ -550,6 +589,45 @@
             }
             
             self->_getOnLabel.text = strtempwrite;
+        }
+        
+        NSString *strtemp = self->_getOnLabel.text;
+        if([NSString nullToString:self->getOnObj.min_customer].length>0 && ![self->getOnObj.min_customer isEqualToString:@"0"])
+        {
+            if(strtemp.length>0)
+            {
+                
+                if([NSBundle getLanguagekey] == LanguageVI)
+                {
+                    strtemp = [NSString stringWithFormat:@"%@\nChỉ đón từ %@ khách trở lên",strtemp,self->getOnObj.min_customer];
+                }
+                else if([NSBundle getLanguagekey] == LanguageEN)
+                {
+                    strtemp = [NSString stringWithFormat:@"%@\nPick up from more than %@ guests",strtemp,self->getOnObj.min_customer];
+                }
+                else
+                {
+                    strtemp = [NSString stringWithFormat:@"%@\n%@名开始接送",strtemp,self->getOnObj.min_customer];
+                }
+            }
+            else
+            {
+                
+                if([NSBundle getLanguagekey] == LanguageVI)
+                {
+                    strtemp = [NSString stringWithFormat:@"Chỉ đón từ %@ khách trở lên",self->getOnObj.min_customer];
+                }
+                else if([NSBundle getLanguagekey] == LanguageEN)
+                {
+                    strtemp = [NSString stringWithFormat:@"Pick up from more than %@ guests",self->getOnObj.min_customer];
+                }
+                else
+                {
+                    strtemp = [NSString stringWithFormat:@"%@名开始接送",self->getOnObj.min_customer];
+                }
+            }
+            
+            self->_getOnLabel.text =  strtemp;
         }
         
         ///调整价格

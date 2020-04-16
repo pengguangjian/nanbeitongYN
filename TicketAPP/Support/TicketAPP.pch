@@ -95,15 +95,20 @@
 
 
 #define DEFAULTCOLOR1 RGBA(89, 176, 91, 1.0f)
-#define DEFAULTCOLOR2 HEXCOLOR(@"1e785a")
+//#define DEFAULTCOLOR2 HEXCOLOR(@"1e785a")
+#define DEFAULTCOLOR2 RGBA(30, 120, 90, 1.0f)
+//#define ORANGECOLOR HEXCOLOR(@"ffae00")
+#define ORANGECOLOR RGBA(255, 274, 0, 1.0f)
 
-#define ORANGECOLOR HEXCOLOR(@"ffae00")
+//#define SEPARATORCOLOR HEXCOLOR(@"eaeaea")
+#define SEPARATORCOLOR RGBA(234, 234, 234, 1.0f)
 
-#define SEPARATORCOLOR HEXCOLOR(@"eaeaea")
-
-#define COL1 HEXCOLOR(@"1a1a1a")
-#define COL2 HEXCOLOR(@"717e7d")
-#define COL3 HEXCOLOR(@"b9c3c2")
+//#define COL1 HEXCOLOR(@"1a1a1a")
+#define COL1 RGBA(26, 26, 26, 1.0f)
+//#define COL2 HEXCOLOR(@"717e7d")
+#define COL2 RGBA(113, 126, 125, 1.0f)
+//#define COL3 HEXCOLOR(@"b9c3c2")
+#define COL3 RGBA(185, 195, 194, 1.0f)
 #define COL4 RGBA(222, 222, 222, 1.0f)
 #define COL5 RGBA(252, 252, 254, 1.0f)
 #define COL6 RGBA(87, 92, 122, 1.0f)

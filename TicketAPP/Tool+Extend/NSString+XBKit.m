@@ -60,4 +60,21 @@
     return [NSString stringWithFormat:@"%.2lf",[roundedOunces doubleValue]];
 }
 
+#pragma mark - 判断是否为空对象
++ (NSString *)nullToString:(id)data
+{
+    return [self nullToString:data preset:@""];
+}
+
+#pragma mark - 判断是否为空对象,并设置预设值
++ (NSString *)nullToString:(id)data preset:(NSString *)presetStr{
+    NSString *str;
+    if (data == [NSNull null] || data == nil || data == Nil || [data isKindOfClass:[NSNull class]] || [[NSString stringWithFormat:@"%@",data] isEqualToString:@"<null>"] || [[NSString stringWithFormat:@"%@",data] isEqualToString:@"(null)"] || [[NSString stringWithFormat:@"%@",data] isEqualToString:@"<NULL>"]) {
+        str = presetStr;
+    }else{
+        str = [NSString stringWithFormat:@"%@",data];
+    }
+    return str;
+}
+
 @end

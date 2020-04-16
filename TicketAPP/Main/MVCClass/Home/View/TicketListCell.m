@@ -48,9 +48,26 @@
         self.passengerNotesLabel.text = LS(@"乘车须知");
     }
 //
-    self.startTimeLabel.text = [Util time_hourSecondTime:model.station_begin];
+    if(model.station_begin.length>5)
+    {
+        NSArray *arr = [model.station_begin componentsSeparatedByString:@" "];
+        if(arr.count==2)
+        {
+            self.startTimeLabel.text = arr[1];
+        }
+    }
+    
     self.startStationLable.text = model.from_name;
-    self.endTimeLabel.text = [Util time_hourSecondTime:model.station_end];
+    
+    if(model.station_end.length>5)
+    {
+        NSArray *arr = [model.station_end componentsSeparatedByString:@" "];
+        if(arr.count==2)
+        {
+            self.endTimeLabel.text = arr[1];
+        }
+    }
+    
     self.endStationLabel.text = model.to_city;
     self.boardingPointLabel.text = model.start_name_c;
     self.busTypeLabel.text = [NSString stringWithFormat:@"%@",model.vehicle_type];

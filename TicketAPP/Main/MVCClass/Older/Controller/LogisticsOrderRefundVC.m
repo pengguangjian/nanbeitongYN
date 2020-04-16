@@ -265,6 +265,12 @@
     }];
     
 }
+
+-(void)onBack
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 - (IBAction)quxiaoClick:(id)sender {
     
     [self onBack];

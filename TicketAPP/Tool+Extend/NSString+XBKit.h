@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)stringWithFormatPrice:(NSString *)priceStr;
 
+#pragma mark - 判断是否为空对象
++ (NSString *)nullToString:(id)data;
+
 @end
 
 NS_ASSUME_NONNULL_END

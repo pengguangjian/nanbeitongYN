@@ -556,7 +556,7 @@
 //    [MBManager showLoading];
     [AFHTTP POST:@"api/user/userinfo" parameters:param success:^(id responseObject){
 
-//        [MBManager hideAlert];
+        [MBManager hideAlert];
         
         UserModel *model = [UserModel mj_objectWithKeyValues:responseObject[@"userinfo"]];
         [[UserInfo sharedInstance] updateLoginUserInfo:model];
@@ -564,7 +564,7 @@
         
         
     } failure:^(NSError *error){
-//        [MBManager hideAlert];
+        [MBManager hideAlert];
         [MBManager showBriefAlert:error.localizedDescription];
     }];
 }
