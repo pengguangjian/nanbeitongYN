@@ -26,7 +26,10 @@
 "预计手续费" = "Estimated handling fee";
 "预计退款金额" = "Estimated refund amount";
 "车票金额" = "Ticket amount";
-
+"票数不满足最少接送人数" = "Tickets do not meet the minimum pick-up number";
+"请输入下车点备注" = "Please enter the drop-off point remarks";
+"请输入上车点备注" = "Please enter the pick-up point";
+"请先选择座位" = "Please select a seat first";
 "成功保存到相册" = "Successfully saved to album";
 "保存失败" = "Save failed";
 

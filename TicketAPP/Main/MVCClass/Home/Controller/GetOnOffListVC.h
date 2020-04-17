@@ -18,6 +18,9 @@ typedef void (^GetOnOffListVCGetOffHandler)(id obj);
 @property (nonatomic, copy) GetOnOffListVCGetONHandler getONHandler;
 @property (nonatomic, copy) GetOnOffListVCGetOffHandler getOffHander;
 
+///座位数
+@property (nonatomic , assign) NSInteger pipoCount;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -46,6 +46,13 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)loadFirstData {
+    if(dataArr.count>0)
+    {
+        [self.tableView headerEndRefreshing];
+    }
+    
+}
 
 - (void)getSeatList:(NSString*)tripid {
     
@@ -67,7 +74,7 @@
                 arr = [rd.data valueForKey:@"drop_off_points_at_arrive"];
             }
             
-            dataArr = [GetOnOffObj mj_objectArrayWithKeyValuesArray:arr];
+            self->dataArr = [GetOnOffObj mj_objectArrayWithKeyValuesArray:arr];
             [self.tableView headerEndRefreshing];
             [self endFooterRefreshingWithNoMoreData];
 
@@ -154,7 +161,7 @@
         }
     }
     NSString *strtemp = cell.beizhuLabel.text;
-    if(![gooo.min_customer isEqualToString:@"0"] && [NSString nullToString:gooo.min_customer].length>0)
+    if(![gooo.min_customer isEqualToString:@"0"] && ![gooo.min_customer isEqualToString:@"1"] && [NSString nullToString:gooo.min_customer].length>0)
     {
         if(strtemp.length>0)
         {
@@ -206,7 +213,13 @@
     
     GetOnOffObj *gooo = [dataArr objectAtIndex:indexPath.row];
     
-    if(gooo.address.length==0 && gooo.address_name.length==0)
+    if(gooo.min_customer.intValue > _pipoCount && gooo.min_customer.intValue>1)
+    {
+        [SVProgressHUD showInfoWithStatus:LS(@"票数不满足最少接送人数")];
+        return;
+    }
+    
+    if ([gooo.unfixed_point intValue] == 1)
     {
         modelSelect = gooo;
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:LS(@"请输入地址") preferredStyle:UIAlertControllerStyleAlert];
@@ -257,7 +270,7 @@
         return 70+ftemp;
     }
     
-    if(gooo.surcharge.intValue>0||([NSString nullToString:gooo.min_customer].length>0 && ![gooo.min_customer isEqualToString:@"0"]))
+    if(gooo.surcharge.intValue>0||([NSString nullToString:gooo.min_customer].length>0 && ![gooo.min_customer isEqualToString:@"0"] && ![gooo.min_customer isEqualToString:@"1"]))
     {
         return 90;
     }

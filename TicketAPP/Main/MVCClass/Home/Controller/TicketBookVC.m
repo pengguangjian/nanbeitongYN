@@ -261,6 +261,26 @@
         return;
     }
     
+    if(!getOnObj)
+    {
+        [MBManager showBriefAlert:NSBundleLocalizedString(@"请选择上车点")];
+        return;
+    }
+    if(!getOffObj)
+    {
+        [MBManager showBriefAlert:NSBundleLocalizedString(@"请选择下车点")];
+        return;
+    }
+    if([self->getOffObj.unfixed_point intValue] == 1 && _getOffTextField.text.length==0)
+    {
+        [MBManager showBriefAlert:NSBundleLocalizedString(@"请输入下车点备注")];
+        return;
+    }
+    if([self->getOnObj.unfixed_point intValue] == 1 && _getOnTextField.text.length==0)
+    {
+        [MBManager showBriefAlert:NSBundleLocalizedString(@"请输入上车点备注")];
+        return;
+    }
     
     [SVProgressHUD showWithStatus:LS(@"车位预约中")];
     
@@ -323,14 +343,14 @@
         }
     }
     
-    if(self.getOffTextField.text.length>0)
-    {
-        [dataDic setObject:self.getOffTextField.text forKey:@"pickup"];
-    }
-    if(self.getOnTextField.text.length>0)
-    {
-        [dataDic setObject:self.getOnTextField.text forKey:@"drop_off_info"];
-    }
+//    if(self.getOffTextField.text.length>0)
+//    {
+//        [dataDic setObject:self.getOffTextField.text forKey:@"pickup"];
+//    }
+//    if(self.getOnTextField.text.length>0)
+//    {
+//        [dataDic setObject:self.getOnTextField.text forKey:@"drop_off_info"];
+//    }
     
     [hm getRequetInterfaceData:dataDic withInterfaceName:@"api/ticketorder/ordersubmit"];
 }
@@ -378,6 +398,7 @@
 #pragma mark - 选择座位
 - (void)toSelectSeat {
     
+    
     DHSelectSeatView *selectSeatView = [DHSelectSeatView sharedView:_model.ID andNoMoSelect:selectSeatArr];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:selectSeatView];
@@ -385,10 +406,10 @@
     __block __typeof(self)bself = self;
     selectSeatView.handler = ^(NSArray *selectArr) {
         
-        selectSeatArr = selectArr;
+        self->selectSeatArr = selectArr;
         
         NSString *seatStr = nil;
-        for (SeatObj *so in selectSeatArr) {
+        for (SeatObj *so in self->selectSeatArr) {
             if (so.seat_code) {
                 if (seatStr) {
                     seatStr = [seatStr stringByAppendingString:@","];
@@ -398,7 +419,19 @@
                 }
             }
         }
-        _seatLabel.text = seatStr;
+        
+        if(![self->_seatLabel.text isEqualToString:seatStr])
+        {
+            self->getOnObj = nil;
+            self->getOffObj = nil;
+            self->_getOffLabel.text = @"";
+            self->_getOnLabel.text = @"";
+            ///调整价格
+            [self upddddd];
+            [self setIsShowGetOffInputView:NO];
+            [self setIsShowGetOnInputView:NO];
+        }
+        self->_seatLabel.text = seatStr;
         
         [bself upddddd];
         
@@ -426,9 +459,17 @@
 #pragma mark - 选择下车点
 - (IBAction)getOffBtnOnTouch:(id)sender {
     
+    if(selectSeatArr.count==0)
+    {
+        [SVProgressHUD showInfoWithStatus:LS(@"请先选择座位")];
+        
+        return;
+    }
+    
     GetOnOffListVC *vc = [[GetOnOffListVC alloc] initWithNibName:@"GetOnOffListVC" bundle:nil];
     vc.trip_id = _model.ID;
     vc.titleStr = LS(@"请选择下车点");
+    vc.pipoCount = selectSeatArr.count;
     vc.getOffHander = ^(id  _Nonnull obj) {
         self->getOffObj = obj;
         
@@ -451,19 +492,19 @@
             
         }
         
-        if(self->getOffObj.muUserAddress.length>0)
-        {
-            
-            self->_getOffLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOffObj.name,self->getOffObj.muUserAddress];
-            if([NSBundle getLanguagekey] == LanguageEN)
-            {
-                if(self->getOffObj.english_name.length>0)
-                {
-                    self->_getOffLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOffObj.english_name,self->getOffObj.muUserAddress];
-                }
-                
-            }
-        }
+//        if(self->getOffObj.muUserAddress.length>0)
+//        {
+//
+//            self->_getOffLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOffObj.name,self->getOffObj.muUserAddress];
+//            if([NSBundle getLanguagekey] == LanguageEN)
+//            {
+//                if(self->getOffObj.english_name.length>0)
+//                {
+//                    self->_getOffLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOffObj.english_name,self->getOffObj.muUserAddress];
+//                }
+//
+//            }
+//        }
         if(self->getOffObj.surcharge.intValue>0)
         {
             NSString *strtemp = self->_getOffLabel.text;
@@ -521,11 +562,14 @@
         ///调整价格
         [self upddddd];
         
+        
         if ([self->getOffObj.unfixed_point intValue] == 1) {
             [self setIsShowGetOffInputView:YES];
+            self.getOffTextField.text = self->getOffObj.muUserAddress;
         } else {
             [self setIsShowGetOffInputView:NO];
         }
+        
     };
     [self.navigationController pushViewController:vc animated:YES];
     
@@ -533,8 +577,15 @@
 #pragma mark - 选择上车点
 - (IBAction)getOnBtnOnTouch:(id)sender {
     
+    if(selectSeatArr.count==0)
+    {
+        [SVProgressHUD showInfoWithStatus:@"请先选择座位"];
+        return;
+    }
+    
     GetOnOffListVC *vc = [[GetOnOffListVC alloc] initWithNibName:@"GetOnOffListVC" bundle:nil];
     vc.trip_id = _model.ID;
+    vc.pipoCount = selectSeatArr.count;
     vc.titleStr = LS(@"请选择上车点");
     vc.getONHandler = ^(id  _Nonnull obj) {
         self->getOnObj = obj;
@@ -560,20 +611,20 @@
             
         }
         
-        if(self->getOnObj.muUserAddress.length>0)
-        {
-            
-            self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOnObj.name,self->getOnObj.muUserAddress];
-            
-            if([NSBundle getLanguagekey] == LanguageEN)
-            {
-                if(self->getOnObj.english_name.length>0)
-                {
-                    self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOnObj.english_name,self->getOnObj.muUserAddress];
-                }
-                
-            }
-        }
+//        if(self->getOnObj.muUserAddress.length>0)
+//        {
+//
+//            self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOnObj.name,self->getOnObj.muUserAddress];
+//
+//            if([NSBundle getLanguagekey] == LanguageEN)
+//            {
+//                if(self->getOnObj.english_name.length>0)
+//                {
+//                    self->_getOnLabel.text = [NSString stringWithFormat:@"%@ %@-%@",[componds firstObject], self->getOnObj.english_name,self->getOnObj.muUserAddress];
+//                }
+//
+//            }
+//        }
         
         if(self->getOnObj.surcharge.intValue>0)
         {
@@ -635,6 +686,7 @@
         
         if ([self->getOnObj.unfixed_point intValue] == 1) {
             [self setIsShowGetOnInputView:YES];
+            self.getOnTextField.text = self->getOnObj.muUserAddress;
         } else {
             [self setIsShowGetOnInputView:NO];
         }

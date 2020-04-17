@@ -247,3 +247,7 @@
 "预计手续费" = "Phí xử lý dự kiến";
 "预计退款金额" = "Số tiền hoàn trả dự kiến";
 "车票金额" = "Số lượng vé";
+"票数不满足最少接送人数" = "Vé không đáp ứng số lượng đón tối thiểu";
+"请输入下车点备注" = "Vui lòng nhập các nhận xét điểm thả";
+"请输入上车点备注" = "Vui lòng nhập điểm đón";
+"请先选择座位" = "Vui lòng chọn chỗ ngồi trước";
