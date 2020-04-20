@@ -11,19 +11,17 @@
 
 #ifdef DEBUG
 
-    //#define HTTPAPI @"http://www.vexevn.com.vn/"
-//    #define HTTPAPI @"http://192.168.0.106:82/"
-//    #define HTTPAPI @"http://ticket.dottp.com/"
+//#define HTTPAPI @"http://www.vexevn.com.vn/"
+//#define HTTPImageAPI @"http://www.vexevn.com.vn"
 #define HTTPAPI @"http://south.dottp.com/"
-//    #define HTTPImageAPI @"http://www.vexevn.com.vn"
 #define HTTPImageAPI @""
 
 #else
 
-//    #define HTTPAPI @"http://ticket.dottp.com/"
+//#define HTTPAPI @"http://www.vexevn.com.vn/"
+//#define HTTPImageAPI @"http://www.vexevn.com.vn"
 #define HTTPAPI @"http://south.dottp.com/"
-    //    #define HTTPImageAPI @"http://www.vexevn.com.vn"
-    #define HTTPImageAPI @""
+#define HTTPImageAPI @""
 
 #endif
 

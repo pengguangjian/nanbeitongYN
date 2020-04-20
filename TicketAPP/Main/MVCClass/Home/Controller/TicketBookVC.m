@@ -122,7 +122,7 @@
     
     _seatDestLabel.text = LS(@"请选择座位号");
     _connectDescLabel.text = LS(@"请选择联系人");
-    _connectDescLabel1.text = LS(@"用于发送购物信息");
+    _connectDescLabel1.text = LS(@"用于接收车票信息");
     _getOnDescLabel1.text = LS(@"请选择上车点");
     _memoDescLabel.text = LS(@"备注");
     _getOffDescLabel2.text = LS(@"备注");
