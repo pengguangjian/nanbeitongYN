@@ -255,7 +255,7 @@
             else if (tmodel.order_status.intValue == 2)
             {
                 [btitem setTag:2];
-               [btitem setTitle:NSBundleLocalizedString(@"申请退款") forState:UIControlStateNormal];
+                [btitem setTitle:NSBundleLocalizedString(@"申请退款") forState:UIControlStateNormal];
                 [btitem setHidden:NO];
             }
             [btitem addTarget:self action:@selector(payOrBackAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -370,25 +370,25 @@
     NSArray *arrname1 = @[NSBundleLocalizedString(@"联系人"),NSBundleLocalizedString(@"手机号"),@"Email"];
     NSArray *arrvalue1 = @[tmodel.name,tmodel.phone,tmodel.email];
     for(int i = 0 ; i < arrname1.count; i++)
-       {
-           UIView *viewitem = [[UIView alloc] init];
-           [scvback addSubview:viewitem];
-           [viewitem mas_makeConstraints:^(MASConstraintMaker *make) {
-               make.left.offset(0);
-               make.width.equalTo(scvback);
-               make.top.equalTo(viewlianxiren.mas_bottom).offset(60*i);
-               make.height.offset(60);
-               
-           }];
+   {
+       UIView *viewitem = [[UIView alloc] init];
+       [scvback addSubview:viewitem];
+       [viewitem mas_makeConstraints:^(MASConstraintMaker *make) {
+           make.left.offset(0);
+           make.width.equalTo(scvback);
+           make.top.equalTo(viewlianxiren.mas_bottom).offset(60*i);
+           make.height.offset(60);
            
-           
-           BOOL isline = YES;
-           BOOL isjiachu = NO;
-           ///需要去设置lbValueitem的值
-           UILabel *lbValueitem = [self drawitemView:viewitem andname:arrname1[i] andisline:isline andisjiachuline:isjiachu];
-           [lbValueitem setText:arrvalue1[i]];
-           viewlast = viewitem;
-       }
+       }];
+       
+       
+       BOOL isline = YES;
+       BOOL isjiachu = NO;
+       ///需要去设置lbValueitem的值
+       UILabel *lbValueitem = [self drawitemView:viewitem andname:arrname1[i] andisline:isline andisjiachuline:isjiachu];
+       [lbValueitem setText:arrvalue1[i]];
+       viewlast = viewitem;
+   }
     
     [scvback mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(viewlast.mas_bottom).offset(10);

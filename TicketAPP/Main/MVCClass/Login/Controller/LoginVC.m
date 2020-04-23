@@ -330,7 +330,7 @@
     }];
 }
 
-
+#pragma mark - 苹果登录
 - (void)handleAuthorizationAppleIDButtonPress {
     if (@available(iOS 13.0, *)) {
         // 基于用户的Apple ID授权用户，生成用户授权请求的一种机制

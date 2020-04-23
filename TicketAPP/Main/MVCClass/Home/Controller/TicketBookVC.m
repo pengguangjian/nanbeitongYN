@@ -521,7 +521,7 @@
         }
         
         NSString *strtemp = self->_getOffLabel.text;
-        if([NSString nullToString:self->getOffObj.min_customer].length>0 && ![self->getOffObj.min_customer isEqualToString:@"0"])
+        if([NSString nullToString:self->getOffObj.min_customer].length>0&&[NSString nullToString:self->getOffObj.min_customer].intValue>1 && ![self->getOffObj.min_customer isEqualToString:@"0"])
         {
             if(strtemp.length>0)
             {
@@ -643,7 +643,7 @@
         }
         
         NSString *strtemp = self->_getOnLabel.text;
-        if([NSString nullToString:self->getOnObj.min_customer].length>0 && ![self->getOnObj.min_customer isEqualToString:@"0"])
+        if([NSString nullToString:self->getOnObj.min_customer].length>0&&[NSString nullToString:self->getOnObj.min_customer].intValue > 1 && ![self->getOnObj.min_customer isEqualToString:@"0"])
         {
             if(strtemp.length>0)
             {

@@ -80,7 +80,7 @@
         [self->songView drawValue:model];
     } failure:^(NSError *error) {
         [MBManager showBriefAlert:error.localizedDescription];
-    }];;
+    }];
 }
 
 -(void)tviewActionBack:(NSInteger)tag
