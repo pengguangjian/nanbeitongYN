@@ -21,99 +21,99 @@
  *  @param content 内容
  *  @param image   图片
  */
-+ (void)shareToThirdPlatform:(SSDKPlatformType)platformType
-                  withUrlStr:(NSString*)urlStr
-                   withTitle:(NSString*)title
-                 withContent:(NSString*)content
-                   WithImage:(UIImage*)image {
-    
-    SSDKContentType contentType = SSDKContentTypeAuto;
-    if (platformType == SSDKPlatformSubTypeQZone && !content && !urlStr && !title) {
-        contentType = SSDKContentTypeImage;
-    }
-    
-    NSURL *url = nil;
-    if (urlStr) {
-        url = [NSURL URLWithString:urlStr];
-    }
-    
-    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-    [shareParams SSDKSetupShareParamsByText:content
-                                     images:image
-                                        url:url
-                                      title:title
-                                       type:contentType];
-    
-    
-    
-    //进行分享
-    [ShareSDK share:platformType //传入分享的平台类型
-         parameters:shareParams
-     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
-         // 回调处理....
-         
-         if (SSDKResponseStateSuccess == state) {
-             [SVProgressHUD showSuccessWithStatus:@"分享成功"];
-         }
-         
-         if (SSDKResponseStateFail == state) {
-             [SVProgressHUD showSuccessWithStatus:@"分享失败"];
-         }
-         
-         if (SSDKResponseStateCancel == state) {
-             [SVProgressHUD showErrorWithStatus:@"用户取消"];
-         }
-         
-     }];
-
-    
-}
-
-
-+ (void)shareToSinaWeiboByText:(NSString *)text
-                         title:(NSString *)title
-                         image:(id)image
-                           url:(NSURL *)url
-                      latitude:(double)latitude
-                     longitude:(double)longitude
-                      objectID:(NSString *)objectID
-                          type:(SSDKContentType)type {
-    
-    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-    [shareParams SSDKSetupSinaWeiboShareParamsByText:(NSString *)text
-                                               title:(NSString *)title
-                                               image:(id)image
-                                                 url:(NSURL *)url
-                                            latitude:(double)latitude
-                                           longitude:(double)longitude
-                                            objectID:(NSString *)objectID
-                                                type:(SSDKContentType)type];
-    
-    
-    //进行分享
-    [ShareSDK share:SSDKPlatformTypeSinaWeibo //传入分享的平台类型
-         parameters:shareParams
-     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
-         // 回调处理....
-         
-         if (SSDKResponseStateSuccess == state) {
-             [SVProgressHUD showSuccessWithStatus:@"分享成功"];
-         }
-         
-         if (SSDKResponseStateFail == state) {
-             [SVProgressHUD showErrorWithStatus:@"分享失败"];
-         }
-         
-         if (SSDKResponseStateCancel == state) {
-             [SVProgressHUD showErrorWithStatus:@"用户取消"];
-         }
-         
-     }];
-    
-    
-    
-    
-}
+//+ (void)shareToThirdPlatform:(SSDKPlatformType)platformType
+//                  withUrlStr:(NSString*)urlStr
+//                   withTitle:(NSString*)title
+//                 withContent:(NSString*)content
+//                   WithImage:(UIImage*)image {
+//    
+//    SSDKContentType contentType = SSDKContentTypeAuto;
+//    if (platformType == SSDKPlatformSubTypeQZone && !content && !urlStr && !title) {
+//        contentType = SSDKContentTypeImage;
+//    }
+//    
+//    NSURL *url = nil;
+//    if (urlStr) {
+//        url = [NSURL URLWithString:urlStr];
+//    }
+//    
+//    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+//    [shareParams SSDKSetupShareParamsByText:content
+//                                     images:image
+//                                        url:url
+//                                      title:title
+//                                       type:contentType];
+//    
+//    
+//    
+//    //进行分享
+//    [ShareSDK share:platformType //传入分享的平台类型
+//         parameters:shareParams
+//     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
+//         // 回调处理....
+//         
+//         if (SSDKResponseStateSuccess == state) {
+//             [SVProgressHUD showSuccessWithStatus:@"分享成功"];
+//         }
+//         
+//         if (SSDKResponseStateFail == state) {
+//             [SVProgressHUD showSuccessWithStatus:@"分享失败"];
+//         }
+//         
+//         if (SSDKResponseStateCancel == state) {
+//             [SVProgressHUD showErrorWithStatus:@"用户取消"];
+//         }
+//         
+//     }];
+//
+//    
+//}
+//
+//
+//+ (void)shareToSinaWeiboByText:(NSString *)text
+//                         title:(NSString *)title
+//                         image:(id)image
+//                           url:(NSURL *)url
+//                      latitude:(double)latitude
+//                     longitude:(double)longitude
+//                      objectID:(NSString *)objectID
+//                          type:(SSDKContentType)type {
+//    
+//    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+//    [shareParams SSDKSetupSinaWeiboShareParamsByText:(NSString *)text
+//                                               title:(NSString *)title
+//                                               image:(id)image
+//                                                 url:(NSURL *)url
+//                                            latitude:(double)latitude
+//                                           longitude:(double)longitude
+//                                            objectID:(NSString *)objectID
+//                                                type:(SSDKContentType)type];
+//    
+//    
+//    //进行分享
+//    [ShareSDK share:SSDKPlatformTypeSinaWeibo //传入分享的平台类型
+//         parameters:shareParams
+//     onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
+//         // 回调处理....
+//         
+//         if (SSDKResponseStateSuccess == state) {
+//             [SVProgressHUD showSuccessWithStatus:@"分享成功"];
+//         }
+//         
+//         if (SSDKResponseStateFail == state) {
+//             [SVProgressHUD showErrorWithStatus:@"分享失败"];
+//         }
+//         
+//         if (SSDKResponseStateCancel == state) {
+//             [SVProgressHUD showErrorWithStatus:@"用户取消"];
+//         }
+//         
+//     }];
+//    
+//    
+//    
+//    
+//}
 
 
 

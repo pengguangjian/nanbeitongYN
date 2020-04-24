@@ -23,77 +23,77 @@
 //登录微信
 - (void)loginWechat {
     
-    [ShareSDK getUserInfo:SSDKPlatformTypeWechat
-           onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error) {
-               
-               if (state == SSDKResponseStateSuccess) {
-                   
-                   if (self.thirdPlatformLoginHandler) {
-                       self.thirdPlatformLoginHandler(user);
-                   }
-                   
-//                   dispatch_async(dispatch_get_main_queue(), ^{
-//                       [SVProgressHUD showWithStatus:@"正在登录..."];
-//                   });
-                   
-               } else {
-                   NSLog(@"%@",error);
-                   
-               }
-               
-           }];
+//    [ShareSDK getUserInfo:SSDKPlatformTypeWechat
+//           onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error) {
+//
+//               if (state == SSDKResponseStateSuccess) {
+//
+//                   if (self.thirdPlatformLoginHandler) {
+//                       self.thirdPlatformLoginHandler(user);
+//                   }
+//
+////                   dispatch_async(dispatch_get_main_queue(), ^{
+////                       [SVProgressHUD showWithStatus:@"正在登录..."];
+////                   });
+//
+//               } else {
+//                   NSLog(@"%@",error);
+//
+//               }
+//
+//           }];
 
 }
 
 //登录QQ
 - (void)loginQQ {
     
-    [ShareSDK getUserInfo:SSDKPlatformTypeQQ
-           onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error) {
-               
-               if (state == SSDKResponseStateSuccess) {
-                   
-                   if (self.thirdPlatformLoginHandler) {
-                       self.thirdPlatformLoginHandler(user);
-                   }
-                   
-//                   dispatch_async(dispatch_get_main_queue(), ^{
-//                       
-//                       [SVProgressHUD showWithStatus:@"正在登录..."];
-//                   });
-                   
-               } else {
-                   NSLog(@"%@",error);
-                   
-               }
-               
-           }];
+//    [ShareSDK getUserInfo:SSDKPlatformTypeQQ
+//           onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error) {
+//
+//               if (state == SSDKResponseStateSuccess) {
+//
+//                   if (self.thirdPlatformLoginHandler) {
+//                       self.thirdPlatformLoginHandler(user);
+//                   }
+//
+////                   dispatch_async(dispatch_get_main_queue(), ^{
+////
+////                       [SVProgressHUD showWithStatus:@"正在登录..."];
+////                   });
+//
+//               } else {
+//                   NSLog(@"%@",error);
+//
+//               }
+//
+//           }];
     
 }
 
 //登录微博
 - (void)loginSina {
     
-    [ShareSDK getUserInfo:SSDKPlatformTypeSinaWeibo
-           onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error) {
-               
-               if (state == SSDKResponseStateSuccess) {
-                   
-                   if (self.thirdPlatformLoginHandler) {
-                       self.thirdPlatformLoginHandler(user);
-                   }
-                   
-//                   dispatch_async(dispatch_get_main_queue(), ^{
-//                       [SVProgressHUD showWithStatus:@"正在登录..."];
-//                   });
-                   
-               } else {
-                   NSLog(@"%@",error);
-                   
-                   
-               }
-               
-           }];
+//    [ShareSDK getUserInfo:SSDKPlatformTypeSinaWeibo
+//           onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error) {
+//               
+//               if (state == SSDKResponseStateSuccess) {
+//                   
+//                   if (self.thirdPlatformLoginHandler) {
+//                       self.thirdPlatformLoginHandler(user);
+//                   }
+//                   
+////                   dispatch_async(dispatch_get_main_queue(), ^{
+////                       [SVProgressHUD showWithStatus:@"正在登录..."];
+////                   });
+//                   
+//               } else {
+//                   NSLog(@"%@",error);
+//                   
+//                   
+//               }
+//               
+//           }];
     
 }
 

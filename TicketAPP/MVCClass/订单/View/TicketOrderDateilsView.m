@@ -219,7 +219,7 @@
     //预计到达时间  预定时间
     NSArray *arrname = @[NSBundleLocalizedString(@"上车点"),NSBundleLocalizedString(@"下车点"),NSBundleLocalizedString(@"座位号"),NSBundleLocalizedString(@"价  格"),NSBundleLocalizedString(@"预计到达"),NSBundleLocalizedString(@"预定时间"),NSBundleLocalizedString(@"支付时间"),NSBundleLocalizedString(@"订单号"),NSBundleLocalizedString(@"订单编号"),NSBundleLocalizedString(@"订单状态")];
     
-    NSArray *arrvalue = @[tmodel.pickup_info,tmodel.drop_off_info,tmodel.seat_codes,tmodel.amount_booking,tmodel.arrival_date,tmodel.created_date,tmodel.order_pay_time,tmodel.code,tmodel.order_code,tmodel.order_statusString];
+    NSArray *arrvalue = @[tmodel.pickup_info,tmodel.drop_off_info,tmodel.seat_codes,[NSString stringWithFormatPrice:tmodel.amount_booking],tmodel.arrival_date,tmodel.created_date,tmodel.order_pay_time,tmodel.code,tmodel.order_code,tmodel.order_statusString];
     UIView *viewlast=viewline;
     for(int i = 0 ; i < arrname.count; i++)
     {

@@ -60,13 +60,13 @@
 {
     
     NSDictionary *param = [self paramStringWithData:@{@"ob_id":Ob_id}];
-    
+    [SVProgressHUD show];
     [AFHTTP POST:@"api/ticketorder/getOrderInfo" parameters:param success:^(id responseObject){
-        
+        [SVProgressHUD dismiss];
        success ? success(responseObject) : nil ;
        
     } failure:^(NSError *error){
-        
+        [SVProgressHUD dismiss];
         failure ? failure(error) : nil ;
         [MBManager showBriefAlert:error.localizedDescription];
     }];

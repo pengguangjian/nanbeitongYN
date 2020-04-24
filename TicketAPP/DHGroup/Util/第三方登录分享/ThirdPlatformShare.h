@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import <ShareSDK/ShareSDK.h>
-#import <ShareSDKUI/ShareSDK+SSUI.h>
+//#import <ShareSDK/ShareSDK.h>
+//#import <ShareSDKUI/ShareSDK+SSUI.h>
 
 @interface ThirdPlatformShare : NSObject
 
@@ -21,21 +21,21 @@
  *  @param title   标题
  *  @param content 内容
  *  @param image   图片
- */
-+ (void)shareToThirdPlatform:(SSDKPlatformType)platformType
-                  withUrlStr:(NSString*)urlStr
-                   withTitle:(NSString*)title
-                 withContent:(NSString*)content
-                   WithImage:(UIImage*)image;
-
-
-+ (void)shareToSinaWeiboByText:(NSString *)text
-                         title:(NSString *)title
-                         image:(id)image
-                           url:(NSURL *)url
-                      latitude:(double)latitude
-                     longitude:(double)longitude
-                      objectID:(NSString *)objectID
-                          type:(SSDKContentType)type;
+// */
+//+ (void)shareToThirdPlatform:(SSDKPlatformType)platformType
+//                  withUrlStr:(NSString*)urlStr
+//                   withTitle:(NSString*)title
+//                 withContent:(NSString*)content
+//                   WithImage:(UIImage*)image;
+//
+//
+//+ (void)shareToSinaWeiboByText:(NSString *)text
+//                         title:(NSString *)title
+//                         image:(id)image
+//                           url:(NSURL *)url
+//                      latitude:(double)latitude
+//                     longitude:(double)longitude
+//                      objectID:(NSString *)objectID
+//                          type:(SSDKContentType)type;
 
 @end

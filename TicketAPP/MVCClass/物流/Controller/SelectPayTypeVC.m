@@ -9,10 +9,10 @@
 #import "SelectPayTypeVC.h"
 #import "DHPaySuccessView.h"
 
-#import "WXApiManager.h"
-#import "WXApiRequestHandler.h"
-#import "WXApi.h"
-#import <AlipaySDK/AlipaySDK.h>
+//#import "WXApiManager.h"
+//#import "WXApiRequestHandler.h"
+//#import "WXApi.h"
+//#import <AlipaySDK/AlipaySDK.h>
 
 
 @interface SelectPayTypeVC ()
@@ -145,80 +145,80 @@
 - (void)callPay {
     
     //支付宝
-    if (payIndex == 2) {
-        
-        HttpManager *hm = [HttpManager createHttpManager];
-
-        hm.responseHandler = ^(id responseObject) {
-
-            dispatch_async(dispatch_get_main_queue(), ^{
-
-                ResponseData *rd = [ResponseData mj_objectWithKeyValues:responseObject];
-                if ([rd.code isEqualToString:SUCCESS]) {
-                    NSString *signedString = rd.data;
-                    [self callAlipay:signedString];
-
-                } else {
-                    [SVProgressHUD showErrorWithStatus:rd.msg];
-                }
-            });
-        };
-
-        NSDictionary *payDic = @{@"type":@"2",
-                                 @"order_type":_order_type,
-                                 @"order_code":_order_id};
-        [hm getRequetInterfaceData:payDic withInterfaceName:@"api/orderpay/sendorder"];
-        
-    //微信
-    } else if (payIndex == 1) {
-        
-        if (![WXApi isWXAppInstalled]) {
-            [SVProgressHUD showErrorWithStatus:@"需要微信支付，请安装微信"];
-            return;
-        }
-        [WXApiManager sharedManager].delegate = self;
-        NSDictionary *payDic = @{@"type":@"1",@"order_type":_order_type,@"order_code":_order_id};
-        [[WXApiRequestHandler sharedRequestHandler] jumpToBizPayWithDic:payDic];
-    }
+//    if (payIndex == 2) {
+//
+//        HttpManager *hm = [HttpManager createHttpManager];
+//
+//        hm.responseHandler = ^(id responseObject) {
+//
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//
+//                ResponseData *rd = [ResponseData mj_objectWithKeyValues:responseObject];
+//                if ([rd.code isEqualToString:SUCCESS]) {
+//                    NSString *signedString = rd.data;
+//                    [self callAlipay:signedString];
+//
+//                } else {
+//                    [SVProgressHUD showErrorWithStatus:rd.msg];
+//                }
+//            });
+//        };
+//
+//        NSDictionary *payDic = @{@"type":@"2",
+//                                 @"order_type":_order_type,
+//                                 @"order_code":_order_id};
+//        [hm getRequetInterfaceData:payDic withInterfaceName:@"api/orderpay/sendorder"];
+//
+//    //微信
+//    } else if (payIndex == 1) {
+//
+//        if (![WXApi isWXAppInstalled]) {
+//            [SVProgressHUD showErrorWithStatus:@"需要微信支付，请安装微信"];
+//            return;
+//        }
+//        [WXApiManager sharedManager].delegate = self;
+//        NSDictionary *payDic = @{@"type":@"1",@"order_type":_order_type,@"order_code":_order_id};
+//        [[WXApiRequestHandler sharedRequestHandler] jumpToBizPayWithDic:payDic];
+//    }
 }
 
 
 - (void)callAlipay:(NSString*)signedString {
     
     // NOTE: 调用支付结果开始支付
-    [[AlipaySDK defaultService] payOrder:signedString fromScheme:@"TicketAPP" callback:^(NSDictionary *resultDic) {
-        NSLog(@"reslut = %@",resultDic);
-        
-        NSNumber *resultStatus = [resultDic objectForKey:@"resultStatus"];
-        if ([resultStatus intValue] == 9000) {
-            NSDictionary *resultDictionary = [self dictionaryWithJsonString:[resultDic valueForKey:@"result"]];
-            NSDictionary *alipayResponseDic = [resultDictionary valueForKey:@"alipay_trade_app_pay_response"];
-            NSString *paySuccessDateTime = [alipayResponseDic valueForKey:@"timestamp"];
-//            _cartOrder.paySuccessDateTime = paySuccessDateTime;
-//            _cartOrder.payType = [NSNumber numberWithInt:2];
-            
-            [self toPayDetailVC];
-        }else{
-            [SVProgressHUD showErrorWithStatus:@"支付失败"];
-        }
-        //        resultStatus，状态码，SDK里没对应信息，第一个文档里有提到：
-        //        9000 订单支付成功
-        //        8000 正在处理中
-        //        4000 订单支付失败
-        //        6001 用户中途取消
-        //        6002 网络连接出错
-    }];
+//    [[AlipaySDK defaultService] payOrder:signedString fromScheme:@"TicketAPP" callback:^(NSDictionary *resultDic) {
+//        NSLog(@"reslut = %@",resultDic);
+//
+//        NSNumber *resultStatus = [resultDic objectForKey:@"resultStatus"];
+//        if ([resultStatus intValue] == 9000) {
+//            NSDictionary *resultDictionary = [self dictionaryWithJsonString:[resultDic valueForKey:@"result"]];
+//            NSDictionary *alipayResponseDic = [resultDictionary valueForKey:@"alipay_trade_app_pay_response"];
+//            NSString *paySuccessDateTime = [alipayResponseDic valueForKey:@"timestamp"];
+////            _cartOrder.paySuccessDateTime = paySuccessDateTime;
+////            _cartOrder.payType = [NSNumber numberWithInt:2];
+//
+//            [self toPayDetailVC];
+//        }else{
+//            [SVProgressHUD showErrorWithStatus:@"支付失败"];
+//        }
+//        //        resultStatus，状态码，SDK里没对应信息，第一个文档里有提到：
+//        //        9000 订单支付成功
+//        //        8000 正在处理中
+//        //        4000 订单支付失败
+//        //        6001 用户中途取消
+//        //        6002 网络连接出错
+//    }];
     
 }
 
 - (void)WXPayResult:(NSUInteger)result {
     
-    if (result == WXPayResultFail) {
-        [SVProgressHUD showErrorWithStatus:@"支付失败"];
-    }
-    if (result == WXPayResultSucess) {
-        [self toPayDetailVC];
-    }
+//    if (result == WXPayResultFail) {
+//        [SVProgressHUD showErrorWithStatus:@"支付失败"];
+//    }
+//    if (result == WXPayResultSucess) {
+//        [self toPayDetailVC];
+//    }
         
 }
 

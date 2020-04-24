@@ -14,7 +14,7 @@
 //车票搜索历史通知
 #define SEARCHHISTORYNotification @"SEARCHHISTORYNotification"
 
-#define Telprompt @"19006690"
+#define Telprompt @"0886577029"
 
 //友盟
 #define UMAccount @"5a12384aa40fa3551f0001d1"
@@ -24,9 +24,9 @@
 #define ZAloAccount @"277457998191359191"
 //#define ZAloAccount   @"3770909691077433801"
 //WX
-#define WXAccount @"wx27b40aa7846da36d"
-//QQ
-#define QQAccount @"101810992"
+//#define WXAccount @"wx27b40aa7846da36d"
+////QQ
+//#define QQAccount @"101810992"
 
 
 

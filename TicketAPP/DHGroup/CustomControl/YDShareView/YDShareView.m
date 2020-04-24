@@ -14,7 +14,7 @@
 #import "ThirdPlatformShare.h"
 
 
-#import <ShareSDKExtension/ShareSDK+Extension.h>
+//#import <ShareSDKExtension/ShareSDK+Extension.h>
 #import "SVProgressHUD.h"
 
 @interface YDShareView ()
@@ -329,89 +329,89 @@
 
 - (void)shareToPlatform {
     
-    switch (btnTag) {
-
-        case 0:
-            
-            if (![ShareSDK isClientInstalled:SSDKPlatformTypeWechat]) {
-                [SVProgressHUD showImage:nil status:@"未安装微信"];
-                return;
-            }
-            
-            [ThirdPlatformShare shareToThirdPlatform:SSDKPlatformSubTypeWechatSession
-                                          withUrlStr:_url
-                                           withTitle:_title
-                                         withContent:_content
-                                           WithImage:_image];
-            
-            break;
-        case 1:
-            if (![ShareSDK isClientInstalled:SSDKPlatformTypeWechat]) {
-                [SVProgressHUD showImage:nil status:@"未安装微信"];
-                return;
-            }
-            [ThirdPlatformShare shareToThirdPlatform:SSDKPlatformSubTypeWechatTimeline
-                                          withUrlStr:_url
-                                           withTitle:_title
-                                         withContent:_content
-                                           WithImage:_image];
-            break;
-        case 4:
-            
-        {
-            NSString *title = nil;
-            UIImage *image = nil;
-            
-            
-            
-            NSString *text = nil;
-            if (title) {
-                text = title;
-            }
-            if (_url) {
-                text = [text stringByAppendingString:_url];
-            }
-            
-            
-            [ThirdPlatformShare shareToThirdPlatform:SSDKPlatformTypeSinaWeibo
-                                          withUrlStr:_url
-                                           withTitle:text
-                                         withContent:text
-                                           WithImage:image];
-            
-            break;
-        }
-            
-            
-        case 2:
-            if (![ShareSDK isClientInstalled:SSDKPlatformTypeQQ]) {
-                [SVProgressHUD showImage:nil status:@"未安装QQ"];
-                return;
-            }
-            [ThirdPlatformShare shareToThirdPlatform:SSDKPlatformSubTypeQQFriend
-                                          withUrlStr:_url
-                                           withTitle:_title
-                                         withContent:_content
-                                           WithImage:_image];
-            break;
-        case 3:
-            if (![ShareSDK isClientInstalled:SSDKPlatformTypeQQ]) {
-                [SVProgressHUD showImage:nil status:@"未安装QQ"];
-                return;
-            }
-            [ThirdPlatformShare shareToThirdPlatform:SSDKPlatformSubTypeQZone
-                                          withUrlStr:_url
-                                           withTitle:_title
-                                         withContent:_content
-                                           WithImage:_image];
-            break;
-//        case 6:
+//    switch (btnTag) {
+//
+//        case 0:
 //            
-//            //            title = @"保存到手机";
+//            if (![ShareSDK isClientInstalled:SSDKPlatformTypeWechat]) {
+//                [SVProgressHUD showImage:nil status:@"未安装微信"];
+//                return;
+//            }
+//            
+//            [ThirdPlatformShare shareToThirdPlatform:SSDKPlatformSubTypeWechatSession
+//                                          withUrlStr:_url
+//                                           withTitle:_title
+//                                         withContent:_content
+//                                           WithImage:_image];
+//            
 //            break;
-        default:
-            break;
-    }
+//        case 1:
+//            if (![ShareSDK isClientInstalled:SSDKPlatformTypeWechat]) {
+//                [SVProgressHUD showImage:nil status:@"未安装微信"];
+//                return;
+//            }
+//            [ThirdPlatformShare shareToThirdPlatform:SSDKPlatformSubTypeWechatTimeline
+//                                          withUrlStr:_url
+//                                           withTitle:_title
+//                                         withContent:_content
+//                                           WithImage:_image];
+//            break;
+//        case 4:
+//            
+//        {
+//            NSString *title = nil;
+//            UIImage *image = nil;
+//            
+//            
+//            
+//            NSString *text = nil;
+//            if (title) {
+//                text = title;
+//            }
+//            if (_url) {
+//                text = [text stringByAppendingString:_url];
+//            }
+//            
+//            
+//            [ThirdPlatformShare shareToThirdPlatform:SSDKPlatformTypeSinaWeibo
+//                                          withUrlStr:_url
+//                                           withTitle:text
+//                                         withContent:text
+//                                           WithImage:image];
+//            
+//            break;
+//        }
+//            
+//            
+//        case 2:
+//            if (![ShareSDK isClientInstalled:SSDKPlatformTypeQQ]) {
+//                [SVProgressHUD showImage:nil status:@"未安装QQ"];
+//                return;
+//            }
+//            [ThirdPlatformShare shareToThirdPlatform:SSDKPlatformSubTypeQQFriend
+//                                          withUrlStr:_url
+//                                           withTitle:_title
+//                                         withContent:_content
+//                                           WithImage:_image];
+//            break;
+//        case 3:
+//            if (![ShareSDK isClientInstalled:SSDKPlatformTypeQQ]) {
+//                [SVProgressHUD showImage:nil status:@"未安装QQ"];
+//                return;
+//            }
+//            [ThirdPlatformShare shareToThirdPlatform:SSDKPlatformSubTypeQZone
+//                                          withUrlStr:_url
+//                                           withTitle:_title
+//                                         withContent:_content
+//                                           WithImage:_image];
+//            break;
+////        case 6:
+////            
+////            //            title = @"保存到手机";
+////            break;
+//        default:
+//            break;
+//    }
     
 }
 

@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import <ShareSDK/ShareSDK.h>
-#import <ShareSDKUI/ShareSDK+SSUI.h>
+//#import <ShareSDK/ShareSDK.h>
+//#import <ShareSDKUI/ShareSDK+SSUI.h>
 
-typedef void (^ThirdPlatformLoginHandler)(SSDKUser *user);
+//typedef void (^ThirdPlatformLoginHandler)(SSDKUser *user);
 
 @interface ThirdPlatformLogin : NSObject
 
-@property (nonatomic, copy) ThirdPlatformLoginHandler thirdPlatformLoginHandler;
+//@property (nonatomic, copy) ThirdPlatformLoginHandler thirdPlatformLoginHandler;
 
 + (instancetype)sharedThirdPlatformLogin;
 

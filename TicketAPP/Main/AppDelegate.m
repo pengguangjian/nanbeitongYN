@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginVC.h"
-#import <AlipaySDK/AlipaySDK.h>
+//#import <AlipaySDK/AlipaySDK.h>
 #import "AppDelegate+ThirdPartyRegister.h"
 
 @interface AppDelegate ()
@@ -31,7 +31,7 @@
     
     //注册ShareSDK+
 //    [self registerShareSDK];
-    //初始化
+    //初始化 facebook 在使用
     [UMConfigure initWithAppkey:UMAccount channel:@"App Store"];
     //初始化
     [[ZaloSDK sharedInstance] initializeWithAppId:ZAloAccount];
@@ -77,9 +77,9 @@
     /* 设置Facebook的appKey和UrlString */
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Facebook appKey:FBAccount appSecret:nil redirectURL:@""];
     
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WXAccount appSecret:nil redirectURL:@""];
-    
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:QQAccount appSecret:nil redirectURL:@""];
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WXAccount appSecret:nil redirectURL:@""];
+//    
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:QQAccount appSecret:nil redirectURL:@""];
 }
 //zalo 不适用 这个这个api
 - (BOOL)application:(UIApplication *)app
@@ -154,22 +154,22 @@
      6001 用户中途取消
      6002 网络连接出错
      */
-    if ([url.host isEqualToString:@"safepay"]) {
-        //这个是进程KILL掉之后也会调用，这个只是第一次授权回调，同时也会返回支付信息
-        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
-            [self AlipayWithResutl:resultDic];
-        }];
-        //跳转支付宝钱包进行支付，处理支付结果，这个只是辅佐订单支付结果回调
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            [self AlipayWithResutl:resultDic];
-        }];
-        
-    } else if ([url.host isEqualToString:@"platformapi"]) {
-        //授权返回码
-        [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
-            [self AlipayWithResutl:resultDic];
-        }];
-    }
+//    if ([url.host isEqualToString:@"safepay"]) {
+//        //这个是进程KILL掉之后也会调用，这个只是第一次授权回调，同时也会返回支付信息
+//        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
+//            [self AlipayWithResutl:resultDic];
+//        }];
+//        //跳转支付宝钱包进行支付，处理支付结果，这个只是辅佐订单支付结果回调
+//        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+//            [self AlipayWithResutl:resultDic];
+//        }];
+//        
+//    } else if ([url.host isEqualToString:@"platformapi"]) {
+//        //授权返回码
+//        [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
+//            [self AlipayWithResutl:resultDic];
+//        }];
+//    }
     
     return YES;
     

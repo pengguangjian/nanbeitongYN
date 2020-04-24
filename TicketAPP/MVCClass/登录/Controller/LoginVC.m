@@ -18,7 +18,7 @@
 #import "BindingLoginVC.h"
 
 @interface LoginVC () {
-    SSDKUser *ssdkUser;
+//    SSDKUser *ssdkUser;
 }
 @property (weak, nonatomic) IBOutlet UITextField *codeTF;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
@@ -65,9 +65,9 @@
     self.codeTF.secureTextEntry = YES;
     [self setupTextFilePlaceholder:NSBundleLocalizedString(@"请输入密码") andTextFile:self.codeTF];
     
-    [ShareSDK cancelAuthorize:SSDKPlatformTypeSinaWeibo];
-    [ShareSDK cancelAuthorize:SSDKPlatformTypeQQ];
-    [ShareSDK cancelAuthorize:SSDKPlatformTypeWechat];
+//    [ShareSDK cancelAuthorize:SSDKPlatformTypeSinaWeibo];
+//    [ShareSDK cancelAuthorize:SSDKPlatformTypeQQ];
+//    [ShareSDK cancelAuthorize:SSDKPlatformTypeWechat];
     
 //    [[UMSocialManager defaultManager] cancelAuthWithPlatform:UMSocialPlatformType_WechatSession completion:nil];
 //    [[UMSocialManager defaultManager] cancelAuthWithPlatform:UMSocialPlatformType_QQ completion:nil];
@@ -355,34 +355,34 @@
 
 - (void)getUserInfoForWX {
     
-    WEAK_SELF;
-    ThirdPlatformLogin *tpl = [ThirdPlatformLogin sharedThirdPlatformLogin];
-    tpl.thirdPlatformLoginHandler = ^(SSDKUser *user) {
-        
-        NSLog(@"uid=%@",user.uid);
-        NSLog(@"%@",user.credential);
-        NSLog(@"token=%@",user.credential.token);
-        NSLog(@"nickname=%@",user.nickname);
-        
-        NSMutableDictionary *rowData = [user.rawData mutableCopy];
-        NSString *unionid = [rowData objectForKey:@"unionid"];
-        
-        NSString *openid = [rowData objectForKey:@"openid"];
-        
-        user.credential.token = openid;
-        
-        ssdkUser = user;
-        
-        NSMutableDictionary *wxpram = [[NSMutableDictionary alloc]init];
-        [wxpram setValue:user.uid forKey:@"wx_id"];
-        [wxpram setValue:unionid forKey:@"wx_unionid"];
-        [wxpram setValue:user.icon forKey:@"iconurl"];
-        [wxpram setValue:user.nickname forKey:@"wx_name"];
-        
-        [weakSelf requestWXlogin:unionid Faceprom:wxpram];
-        
-    };
-    [tpl loginWechat];
+//    WEAK_SELF;
+//    ThirdPlatformLogin *tpl = [ThirdPlatformLogin sharedThirdPlatformLogin];
+//    tpl.thirdPlatformLoginHandler = ^(SSDKUser *user) {
+//
+//        NSLog(@"uid=%@",user.uid);
+//        NSLog(@"%@",user.credential);
+//        NSLog(@"token=%@",user.credential.token);
+//        NSLog(@"nickname=%@",user.nickname);
+//
+//        NSMutableDictionary *rowData = [user.rawData mutableCopy];
+//        NSString *unionid = [rowData objectForKey:@"unionid"];
+//
+//        NSString *openid = [rowData objectForKey:@"openid"];
+//
+//        user.credential.token = openid;
+//
+//        ssdkUser = user;
+//
+//        NSMutableDictionary *wxpram = [[NSMutableDictionary alloc]init];
+//        [wxpram setValue:user.uid forKey:@"wx_id"];
+//        [wxpram setValue:unionid forKey:@"wx_unionid"];
+//        [wxpram setValue:user.icon forKey:@"iconurl"];
+//        [wxpram setValue:user.nickname forKey:@"wx_name"];
+//
+//        [weakSelf requestWXlogin:unionid Faceprom:wxpram];
+//
+//    };
+//    [tpl loginWechat];
     
 
     
@@ -390,26 +390,26 @@
 
 - (void)getUserInfoForQQ
 {
-    WEAK_SELF;
-    ThirdPlatformLogin *tpl = [ThirdPlatformLogin sharedThirdPlatformLogin];
-    tpl.thirdPlatformLoginHandler = ^(SSDKUser *user) {
-        
-        NSLog(@"uid=%@",user.uid);
-        NSLog(@"%@",user.credential);
-        NSLog(@"token=%@",user.credential.token);
-        NSLog(@"nickname=%@",user.nickname);
-        
-        ssdkUser = user;
-        
-        NSMutableDictionary *qqpram = [[NSMutableDictionary alloc]init];
-        [qqpram setValue:user.uid forKey:@"qq_id"];
-        [qqpram setValue:user.icon forKey:@"iconurl"];
-        [qqpram setValue:user.nickname forKey:@"qq_name"];
-        
-        [weakSelf requestQQlogin:user.uid Faceprom:qqpram];
-        
-    };
-    [tpl loginQQ];
+//    WEAK_SELF;
+//    ThirdPlatformLogin *tpl = [ThirdPlatformLogin sharedThirdPlatformLogin];
+//    tpl.thirdPlatformLoginHandler = ^(SSDKUser *user) {
+//        
+//        NSLog(@"uid=%@",user.uid);
+//        NSLog(@"%@",user.credential);
+//        NSLog(@"token=%@",user.credential.token);
+//        NSLog(@"nickname=%@",user.nickname);
+//        
+//        ssdkUser = user;
+//        
+//        NSMutableDictionary *qqpram = [[NSMutableDictionary alloc]init];
+//        [qqpram setValue:user.uid forKey:@"qq_id"];
+//        [qqpram setValue:user.icon forKey:@"iconurl"];
+//        [qqpram setValue:user.nickname forKey:@"qq_name"];
+//        
+//        [weakSelf requestQQlogin:user.uid Faceprom:qqpram];
+//        
+//    };
+//    [tpl loginQQ];
     
 }
 
