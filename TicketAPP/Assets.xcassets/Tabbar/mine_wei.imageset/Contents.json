@@ -5,17 +5,18 @@
       "scale" : "1x"
     },
     {
+      "filename" : "mine_wei@2x.png",
       "idiom" : "universal",
-      "filename" : "我的-线性_03.png",
       "scale" : "2x"
     },
     {
+      "filename" : "mine_wei@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

@@ -38,6 +38,10 @@
 {
     CGFloat imageX = 0;
     CGFloat imageY = 0;
+    if([NSBundle getLanguagekey] == LanguageZH)
+    {
+        imageY = 5;
+    }
     CGFloat imageW = self.frame.size.width;
     CGFloat imageH = self.frame.size.height * TabBarButtonRatio;
     return CGRectMake(imageX, imageY, imageW, imageH);
@@ -51,6 +55,7 @@
     CGFloat titleH = self.frame.size.height - titleY;
     if([NSBundle getLanguagekey] == LanguageZH)
     {
+        titleY+=5;
         titleH = 15;
     }
     
