@@ -440,7 +440,13 @@
         
         NSMutableDictionary *applepram = [[NSMutableDictionary alloc]init];
         [applepram setValue:userID forKey:@"apple_id"];
-        
+        @try {
+            [[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"appleUserID"];
+        } @catch (NSException *exception) {
+            
+        } @finally {
+            
+        }
         [weakSelf requestApplelogin:userID appleprom:applepram];
 
     }
@@ -451,19 +457,19 @@
     NSString *errorMsg = nil;
     switch (error.code) {
         case ASAuthorizationErrorCanceled:
-            errorMsg = @"用户取消了授权请求";
+            errorMsg = LS(@"用户取消了授权请求");
             break;
         case ASAuthorizationErrorFailed:
-            errorMsg = @"授权请求失败";
+            errorMsg = LS(@"授权请求失败");
             break;
         case ASAuthorizationErrorInvalidResponse:
-            errorMsg = @"授权请求响应无效";
+            errorMsg = LS(@"授权请求响应无效");
             break;
         case ASAuthorizationErrorNotHandled:
-            errorMsg = @"未能处理授权请求";
+            errorMsg = LS(@"未能处理授权请求");
             break;
         case ASAuthorizationErrorUnknown:
-            errorMsg = @"授权请求失败未知原因";
+            errorMsg = LS(@"授权请求失败未知原因");
             break;
     }
     NSLog(@"%@", errorMsg);

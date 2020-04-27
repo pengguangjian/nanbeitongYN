@@ -25,6 +25,13 @@
 "修改成功" =  "Đã sửa đổi thành công";
 "您还没用同意用户注册协议" = "Bạn chưa đồng ý với Thỏa thuận đăng ký người dùng.";
 
+"用户取消了授权请求" = "Người dùng đã hủy yêu cầu ủy quyền";
+"授权请求失败" = "Yêu cầu ủy quyền không thành công";
+"授权请求响应无效" = "Phản hồi yêu cầu ủy quyền không hợp lệ";
+"未能处理授权请求" = "Không thể xử lý yêu cầu ủy quyền";
+"授权请求失败未知原因" = "Yêu cầu ủy quyền không thành công";
+"已登录" =  "Đăng nhập";
+
 /**TabBar界面**/
 "首页" = "Trang chủ";
 "物流" = "Vận chuyển";

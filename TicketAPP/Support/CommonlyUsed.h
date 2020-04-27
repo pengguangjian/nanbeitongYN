@@ -29,7 +29,7 @@
 //请求版本号
 #define HTTPAPIVersion @"4"
 //超时时间
-#define HTTPTimeoutInterval 15
+#define HTTPTimeoutInterval 30
 //标题
 #define SYS_NAME [XBUtils getAppName]
 //版本号

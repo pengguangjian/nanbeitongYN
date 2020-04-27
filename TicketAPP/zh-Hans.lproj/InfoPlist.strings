@@ -7,6 +7,8 @@
 */
 "CFBundleDisplayName" = "南北通";
 "FacebookDisplayName" = "南北通";
+//"CFBundleDisplayName" = "NAM BAC THONG";
+//"FacebookDisplayName"="NAM BAC THONG";
 "NSCameraUsageDescription"="需要访问你的相机，以便您正常使用上传头像服务";
 "NSPhotoLibraryAddUsageDescription"="需要访问你的相册，以便您正常使用保存图片服务";
 "NSPhotoLibraryUsageDescription"="需要访问你的相册，以便您正常使用上传头像服务";

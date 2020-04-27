@@ -904,7 +904,7 @@
 		FAA67B9422C5C5B8004633DE /* CellEditorAddress.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellEditorAddress.xib; sourceTree = "<group>"; };
 		FAA67B9722C5C6F5004633DE /* EditorAddressVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditorAddressVC.h; sourceTree = "<group>"; };
 		FAA67B9822C5C6F5004633DE /* EditorAddressVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditorAddressVC.m; sourceTree = "<group>"; };
-		FABB13A422C2042000D87668 /* NAM BAC THONG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NAM BAC THONG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FABB13A422C2042000D87668 /* 南北通.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "南北通.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABB13A722C2042000D87668 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FABB13A822C2042000D87668 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FABB13B622C2042200D87668 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2057,7 +2057,7 @@
 		FABB13A522C2042000D87668 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FABB13A422C2042000D87668 /* NAM BAC THONG.app */,
+				FABB13A422C2042000D87668 /* 南北通.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2270,7 +2270,7 @@
 			);
 			name = TicketAPP;
 			productName = TicketAPP;
-			productReference = FABB13A422C2042000D87668 /* NAM BAC THONG.app */;
+			productReference = FABB13A422C2042000D87668 /* 南北通.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -3015,7 +3015,7 @@
 				CODE_SIGN_ENTITLEMENTS = "TicketAPP/票务通.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = 58S35QXA2N;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3075,7 +3075,7 @@
 				CODE_SIGN_ENTITLEMENTS = "TicketAPP/票务通.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = 58S35QXA2N;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

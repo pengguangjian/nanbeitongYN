@@ -24,6 +24,11 @@
 //是否有数据更新
 @property (nonatomic,assign) BOOL isUpdata;
 
+@property (weak, nonatomic) IBOutlet UIView *phoneView;
+@property (weak, nonatomic) IBOutlet UILabel *namePhoneLabel;
+
+
+@property (weak, nonatomic) IBOutlet UIView *changePWDView;
 
 @end
 
@@ -43,6 +48,14 @@
     [self.headImageView sd_setImageWithURL:[NSURL SDURLWithString:self.model.head_img] placeholderImage:[UIImage imageNamed:@"headImage"]];
     self.nameLabel.text = self.model.nickname;
     self.iphoneLabel.text = [XBUtils dealWithPhoneW:self.model.account];
+    
+    NSString *appleUserID = [[NSUserDefaults standardUserDefaults] objectForKey:@"appleUserID"];
+    if (appleUserID.length>0) {
+        [self.changePWDView setHidden:YES];
+        [self.iphoneLabel setText:LS(@"已登录")];
+        [self.namePhoneLabel setText:@"Apple ID"];
+        [self.phoneView setUserInteractionEnabled:NO];
+    }
 }
 //- (void)willMoveToParentViewController:(UIViewController *)parent {
 //    if(self.isUpdata){
@@ -59,6 +72,7 @@
     [[UserInfo sharedInstance]deleteLoginUserInfo];
     
     [XBUtils SYSOutRootController];
+    
 }
 
 - (void)cancelEditing{
@@ -99,6 +113,11 @@
 }
 
 - (IBAction)updatePhone:(id)sender {
+    
+    NSString *appleUserID = [[NSUserDefaults standardUserDefaults] objectForKey:@"appleUserID"];
+    if (appleUserID.length>0) {
+        return;
+    }
     
     [self cancelEditing];
     ModifyThePhoneVC *modifyVC = [[ModifyThePhoneVC alloc] init];

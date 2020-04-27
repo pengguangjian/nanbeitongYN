@@ -12,6 +12,8 @@
 "NSPhotoLibraryUsageDescription"="Need to access your photo album so that you can use the upload avatar service normally";*/
 "CFBundleDisplayName" = "NAM BAC THONG";
 "FacebookDisplayName"="NAM BAC THONG";
+//"CFBundleDisplayName" = "南北通";
+//"FacebookDisplayName"="南北通";
 "NSCameraUsageDescription" = "Need to access your camera so that you can use the upload avatar service normally";
 "NSPhotoLibraryAddUsageDescription" = "Need to access your photo album so that you can use the save picture service normally";
 "NSPhotoLibraryUsageDescription" = "Need to access your photo album so that you can use the upload avatar service normally";

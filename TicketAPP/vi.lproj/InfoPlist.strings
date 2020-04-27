@@ -10,8 +10,10 @@
 "NSCameraUsageDescription"="Cần truy cập máy ảnh của bạn để bạn có thể sử dụng dịch vụ avatar tải lên bình thường";
 "NSPhotoLibraryAddUsageDescription"="Cần truy cập album ảnh của bạn để bạn có thể sử dụng dịch vụ lưu ảnh bình thường";
 "NSPhotoLibraryUsageDescription"="Cần truy cập album ảnh của bạn để bạn có thể sử dụng dịch vụ avatar tải lên bình thường";*/
-"CFBundleDisplayName" = "票务通";
-"FacebookDisplayName" = "票务通";
+//"CFBundleDisplayName" = "南北通";
+//"FacebookDisplayName" = "南北通";
+"CFBundleDisplayName" = "NAM BAC THONG";
+"FacebookDisplayName"="NAM BAC THONG";
 "NSCameraUsageDescription"="Cần truy cập máy ảnh của bạn để bạn có thể sử dụng dịch vụ avatar tải lên bình thường";
 "NSPhotoLibraryAddUsageDescription"="Cần truy cập album ảnh của bạn để bạn có thể sử dụng dịch vụ lưu ảnh bình thường";
 "NSPhotoLibraryUsageDescription"="Cần truy cập album ảnh của bạn để bạn có thể sử dụng dịch vụ avatar tải lên bình thường";

@@ -10,6 +10,7 @@
 #import "LoginVC.h"
 //#import <AlipaySDK/AlipaySDK.h>
 #import "AppDelegate+ThirdPartyRegister.h"
+#import <AuthenticationServices/AuthenticationServices.h>
 
 @interface AppDelegate ()
 
@@ -54,8 +55,53 @@
     }
     [self.window makeKeyAndVisible];
     
+    [self removeAppleLoginState];
+    
+    
     return YES;
 }
+
+///解除苹果登录状态
+-(void)removeAppleLoginState
+{
+    if([[UserInfo sharedInstance] isLogined]==YES)
+    if (@available(iOS 13.0, *)) {
+        
+       NSString *appleUserID = [[NSUserDefaults standardUserDefaults] objectForKey:@"appleUserID"];
+       if ([NSString nullToString:appleUserID].length<1) {//为空
+           return;
+       }
+
+       ASAuthorizationAppleIDProvider *appleIDProvider = [[ASAuthorizationAppleIDProvider alloc] init];
+       [appleIDProvider getCredentialStateForUserID:appleUserID completion:^(ASAuthorizationAppleIDProviderCredentialState credentialState, NSError * _Nullable error) {
+           switch (credentialState) {
+               case ASAuthorizationAppleIDProviderCredentialAuthorized:
+                   // Apple ID credential is valid
+                   NSLog(@"Apple登录_Apple ID credential is valid");
+                   break;
+                   
+               case ASAuthorizationAppleIDProviderCredentialRevoked:
+                   // Apple ID Credential revoked, handle unlink
+                   NSLog(@"Apple登录_Apple ID Credential revoked, handle unlink");
+//                   [self unbindApple];  //跟自己服务器解绑
+//                   [User clearUser];
+                   break;
+                   
+               case ASAuthorizationAppleIDProviderCredentialNotFound:
+                   // Apple ID Credential not found, show login UI
+                   NSLog(@"Apple登录_Apple ID Credential not found, show login UI");
+//                   [User clearUser];
+                   
+                   break;
+                   
+               case ASAuthorizationAppleIDProviderCredentialTransferred:
+                   NSLog(@"Apple登录_Apple ID Credential transferred");
+                   break;
+           }
+       }];
+    }
+}
+
 - (void)confitUShareSettings
 {
     /*

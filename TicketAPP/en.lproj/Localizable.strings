@@ -9,6 +9,14 @@
 //"加载中" = "Loading";
 "加载中" = "Loading";
 
+"用户取消了授权请求" = "User cancelled authorization request";
+"授权请求失败" = "Authorization request failed";
+"授权请求响应无效" = "Authorization request response is invalid";
+"未能处理授权请求" = "Failed to process authorization request";
+"授权请求失败未知原因" = "Authorization request failed for unknown reason";
+
+"已登录" =  "logged";
+
 "退 款" = "Refund";
 "退款中" = "Refunding";
 "请选择方式" = "Please select a method";

@@ -52,6 +52,7 @@ static UserInfo *userinfo;
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:nil forKey:LOGIN_USER_INFO];
+    [userDefaults setObject:nil forKey:@"appleUserID"];
     //清除用户数据代表退出登录了
     [userDefaults setBool:NO forKey:LOGIN_USER_LOG];
     [userDefaults synchronize];
